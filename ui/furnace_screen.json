@@ -1,0 +1,159 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "furnace_screen": {
+        "force_render_below": true
+    },
+    
+    "furnace_panel/root_panel": {
+        "controls": [
+            {
+                "asa_ap@asa_auto_place_panel.asa_chest_auto_place_panel": {}
+            },
+            {
+                "aroow_percent@asa_percent_template.asa_percent_template": {
+                    "$asa_binding_name": "#furnace_flame_ratio",
+                    "$percent_color": [ 0.3, 0.3, 0.3 ],
+                    "offset": [ -40, -39.5 ],
+                    "$percent_layer": 20,
+                    "$percent_shadow": false,
+                    "anchor_from": "center",
+                    "anchor_to": "right_middle",
+                    "$asa_binding_condition": "always"
+                }
+            },
+            {
+                "arrow_percent@asa_percent_template.asa_percent_template": {
+                    "$asa_binding_name": "#furnace_arrow_ratio",
+                    "$percent_color": [ 0.3, 0.3, 0.3 ],
+                    "offset": [ 0, -21 ],
+                    "$percent_layer": 20,
+                    "$percent_shadow": false,
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "$asa_binding_condition": "always"
+                }
+            },
+            {
+                "invcentory_mode@asa_crafting_panel.asa_inventory_mode_panel": {
+                    "offset": [
+                        22,
+                        0
+                    ]
+                }
+            },
+            {
+                "inven_debug@asa_inventory_debug.asa_inventory_mode_debug": {
+                    "offset": [
+                        -6,
+                        -2
+                    ]
+                }
+            },
+            {
+                "common_panel@common.common_panel": {
+                    "$show_close_button": false
+                }
+            },
+            {
+                "furnace_screen_inventory": {
+                    "type": "panel",
+                    "layer": 5,
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_inven_normal",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "furnace_panel_top_half@furnace.furnace_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "auto_place_furnace_screen_inventory": {
+                    "type": "panel",
+                    "layer": 5,
+                    "$button_ref": "asa_drop_one_common.asa_drop_one_slot",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_inven_drop_one",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "furnace_panel_top_half@furnace.furnace_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "fasasurnace_screen_inventory": {
+                    "type": "panel",
+                    "layer": 5,
+                    "$button_ref": "asa_auto_place.asa_auto_place_slot",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_inven_auto_place",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "furnace_panel_top_half@furnace.furnace_panel_top_half": {}
+                        },
+                        {
+                            "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                        },
+                        {
+                            "hotbar_grid@common.hotbar_grid_template": {}
+                        },
+                        {
+                            "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                        }
+                    ]
+                }
+            },
+            {
+                "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+            },
+            {
+                "gamepad_cursor@common.gamepad_cursor_button": {}
+            }
+        ]
+    }
+}

@@ -1,0 +1,157 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "chat_screen@common.base_screen": {
+        "close_on_player_hurt": "$asa_close_hurd",
+        "$asa_close_hurd": false,
+        "force_render_below": true
+    },
+
+    "chat_header/title_panel/chat_header_content_area": {
+        "modifications": [
+            {
+                "control_name": "coordinate_dropdown",
+                "operation": "remove"
+            },
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "asa_coordinates_panel": {
+                            "type": "panel",
+                            "size": [ 100, 16 ],
+                            "$default_texture": "textures/ui/button_borderless_light",
+                            "$hover_texture": "textures/ui/button_borderless_light",
+                            "$pressed_texture": "textures/ui/button_borderless_lighthover",
+                            "$pressed_no_hover_texture": "textures/ui/button_borderless_lighthover",
+
+                            "$default_text_color|default": "$light_toggle_default_text_color",
+                            "$hover_text_color|default": "$light_toggle_default_text_color",
+                            "$default_checked_text_color|default": "$light_toggle_default_text_color",
+                            "$hover_checked_text_color|default": "$light_toggle_default_text_color",
+                            "controls": [
+                                {
+                                    "1@asa_toggle_common.asa_toggle_nav_template":{
+                                        "size": [ "100%", "100%" ],
+                                        "$asa_state_toggle": "#coordinate_type_facing",
+                                        "$button_text": "chat.coordinateTypePosition",
+                                        "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                        "bindings": [
+                                            {
+                                                "binding_name": "#coordinate_type_position",
+                                                "binding_name_override": "#visible"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "2@asa_toggle_common.asa_toggle_nav_template":{
+                                        "size": [ "100%", "100%" ],
+                                        "$asa_state_toggle": "#coordinate_type_position",
+                                        "$button_text": "chat.coordinateTypeFacing",
+                                        "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                        "bindings": [
+                                            {
+                                                "binding_name": "#coordinate_type_facing",
+                                                "binding_name_override": "#visible"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    "chat_screen_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "messages_panel@chat.messages_scrolling_panel": {}
+            },
+            {
+                "chat_bottom_panel@chat.chat_bottom_panel": {
+                    "layer": 2
+                }
+            },
+            {
+                "chat_top_panel@chat.chat_header": {
+                    "layer": 2
+                }
+            },
+            {
+                "autocomplete_commands_panel@chat.commands_panel": {
+                    "layer": 3
+                }
+            },
+            {
+                "host_main_panel@host_options.host_panel": {
+                    "layer": 4
+                }
+            },
+            {
+                "popup_factory@chat_settings.popup_factory": {}
+            },
+            {
+                "command_panel@asa_chat_command.asa_command_panel": {}
+            }
+        ]
+    },
+
+    "chat_bottom_panel": {
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "size": [
+            "100%",
+            27
+        ],
+        "min_size": [
+            "100%",
+            27
+        ],
+        "controls": [
+            {
+                "keyboard_button@chat.keyboard_button": {}
+            },
+            {
+                "host_main_button@host_options.host_main_button": {
+                    "ignored": "$is_pregame",
+                    "$focus_override_up": "coordinate_dropdown_focus_id"
+                }
+            },
+            {
+                "chat_settings@chat.chat_settings_button": {}
+            },
+            {
+                "chat_autocomplete@asa_chat_utility.chat_auto_complete_stack": {}
+            },
+            {
+                "text_box@chat.text_edit_box": {}
+            },
+            {
+                "chat_messenger@asa_chat_utility.chat_message_stack": {}
+            },
+            {
+                "send_button@chat.send_button": {
+                    "offset": [
+                        -20,
+                        0
+                    ]
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,95 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "settings_screen_base": {
+        "$selector_stack_panel": "asa_setting_common.asa_setting_common",
+        "$section_content_panels": "settings.section_content_panels",
+        "$section_header_panels": "settings.section_header_panels",
+        "$section_footer_panels": "settings.section_footer_panels"
+    },
+
+    "section_content_panels/general_and_controls_sections/language_section": {
+        "ignored": false
+    },
+
+    "section_content_panels/general_and_controls_sections/storage_management_section": {
+        "ignored": false
+    },
+
+    "section_content_panels/general_and_controls_sections": {
+        "modifications": [
+            {
+                "control_name": "global_texture_pack_section",
+                "operation": "remove"
+            },
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "asa_resouce_packs_screen@asa_resouce_packs_screen.asa_resource_pack_screen": {
+                            "visible": false,
+                            "ignored": "$ignore_global_resources_section"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    "section_header_panels": {
+        "modifications": [
+            {
+                "array_name": "controls",
+                "operation": "insert_front",
+                "value": [
+                    {
+                        "asa_top_button_stack": {
+                            "size": [ "100% - 5px", "100%cm" ],
+                            "type": "stack_panel",
+                            "orientation": "horizontal",
+                            "$default_selector_toggle_index": 0,
+                            "anchor_from": "left_middle",
+                            "anchor_to": "left_middle",
+                            "visible": false,
+                            "bindings": [
+                                {
+                                    "binding_type": "view",
+                                    "source_control_name": "global_texture_pack_button_toggle",
+                                    "source_property_name": "#toggle_state",
+                                    "target_property_name": "#visible"
+                                }
+                            ],
+                            "controls": [
+                                {
+                                    "global_rsp_ac@asa_resource_packs.asa_nav_rps_toggle": {
+                                        "$asa_toggle_name": "global_rsp",
+                                        "$asa_toggle_state_default": true,
+                                        "$toggle_group": 0,
+                                        "$button_text": "Active",
+                                        "size": [ "50%", 25 ]
+                                    }
+                                },
+                                {
+                                    "global_rsp_un@asa_resource_packs.asa_nav_rps_toggle": {
+                                        "$asa_toggle_name": "global_rsp",
+                                        "$toggle_group": 1,
+                                        "$button_text": "Available",
+                                        "size": [ "50%", 25 ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

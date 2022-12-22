@@ -1,0 +1,40 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "highlight_slot_panel/highlight": {
+        "bindings": [
+            {
+                "binding_name": "none",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+
+    "highlight_slot_panel/white_border": {
+        "bindings": [
+            {
+                "binding_name": "none",
+                "binding_name_override": "#visible"
+            }
+        ]
+    },
+    
+    "slot_selected": {
+        "ignored": true
+    },
+
+    "inventory_icon_panel/hover_text": {
+        "ignored": true
+    },
+    
+    "selected_item_details/item_panel_image": {
+        "ignored": true
+    }
+}

@@ -1,0 +1,995 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_progress_screen_panel",
+    //Loading World Percent
+    "percentage_bindings": {
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "$total": "#loading_bar_total_amount",
+        "$current": "#loading_bar_current_amount",
+        "bindings": [
+            {
+                "binding_name": "$total"
+            },
+            {
+                "binding_name": "$current"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((($current / $total) > $min) and (($current / $total) < $max))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "percen_label@percentage_bindings": {
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "type": "stack_panel",
+        "layer": 100,
+        "orientation": "horizontal",
+        "size": [
+            "100%c",
+            12
+        ],
+        "$number_text|default": "",
+        "controls": [
+            {
+                "number": {
+                    "type": "label",
+                    "text": "$number_text",
+                    "shadow": true,
+                    "font_type": "smooth",
+                    "font_scale_factor": 1.2,
+                    "layer": 100,
+                    "localize": false,
+                    "size": [
+                        "default",
+                        12
+                    ]
+                }
+            },
+            {
+                "percentage": {
+                    "type": "label",
+                    "text": "%",
+                    "shadow": true,
+                    "font_type": "smooth",
+                    "font_scale_factor": 1.2,
+                    "layer": 100,
+                    "localize": false,
+                    "size": [
+                        "default",
+                        12
+                    ]
+                }
+            }
+        ]
+    },
+
+    "progress_percentage": {
+        "type": "panel",
+        "layer": 100,
+        "size": [
+            "100%c",
+            12
+        ],
+        "controls": [
+            {
+                "0@percen_label": {
+                    "$number_text": "0",
+                    "$min": -1.00,
+                    "$max": 0.01
+                }
+            },
+            {
+                "1@percen_label": {
+                    "$number_text": "1",
+                    "$min": 0.01,
+                    "$max": 0.02
+                }
+            },
+            {
+                "2@percen_label": {
+                    "$number_text": "2",
+                    "$min": 0.02,
+                    "$max": 0.03
+                }
+            },
+            {
+                "3@percen_label": {
+                    "$number_text": "3",
+                    "$min": 0.03,
+                    "$max": 0.04
+                }
+            },
+            {
+                "4@percen_label": {
+                    "$number_text": "4",
+                    "$min": 0.04,
+                    "$max": 0.05
+                }
+            },
+            {
+                "5@percen_label": {
+                    "$number_text": "5",
+                    "$min": 0.05,
+                    "$max": 0.06
+                }
+            },
+            {
+                "6@percen_label": {
+                    "$number_text": "6",
+                    "$min": 0.06,
+                    "$max": 0.07
+                }
+            },
+            {
+                "7@percen_label": {
+                    "$number_text": "7",
+                    "$min": 0.07,
+                    "$max": 0.08
+                }
+            },
+            {
+                "8@percen_label": {
+                    "$number_text": "8",
+                    "$min": 0.08,
+                    "$max": 0.09
+                }
+            },
+            {
+                "9@percen_label": {
+                    "$number_text": "9",
+                    "$min": 0.09,
+                    "$max": 0.10
+                }
+            },
+            {
+                "10@percen_label": {
+                    "$number_text": "10",
+                    "$min": 0.10,
+                    "$max": 0.11
+                }
+            },
+            {
+                "11@percen_label": {
+                    "$number_text": "11",
+                    "$min": 0.11,
+                    "$max": 0.12
+                }
+            },
+            {
+                "12@percen_label": {
+                    "$number_text": "12",
+                    "$min": 0.12,
+                    "$max": 0.13
+                }
+            },
+            {
+                "13@percen_label": {
+                    "$number_text": "13",
+                    "$min": 0.13,
+                    "$max": 0.14
+                }
+            },
+            {
+                "14@percen_label": {
+                    "$number_text": "14",
+                    "$min": 0.14,
+                    "$max": 0.15
+                }
+            },
+            {
+                "15@percen_label": {
+                    "$number_text": "15",
+                    "$min": 0.15,
+                    "$max": 0.16
+                }
+            },
+            {
+                "16@percen_label": {
+                    "$number_text": "16",
+                    "$min": 0.16,
+                    "$max": 0.17
+                }
+            },
+            {
+                "17@percen_label": {
+                    "$number_text": "17",
+                    "$min": 0.17,
+                    "$max": 0.18
+                }
+            },
+            {
+                "18@percen_label": {
+                    "$number_text": "18",
+                    "$min": 0.18,
+                    "$max": 0.19
+                }
+            },
+            {
+                "19@percen_label": {
+                    "$number_text": "19",
+                    "$min": 0.19,
+                    "$max": 0.20
+                }
+            },
+            {
+                "20@percen_label": {
+                    "$number_text": "20",
+                    "$min": 0.20,
+                    "$max": 0.21
+                }
+            },
+            {
+                "21@percen_label": {
+                    "$number_text": "21",
+                    "$min": 0.21,
+                    "$max": 0.22
+                }
+            },
+            {
+                "22@percen_label": {
+                    "$number_text": "22",
+                    "$min": 0.22,
+                    "$max": 0.23
+                }
+            },
+            {
+                "23@percen_label": {
+                    "$number_text": "23",
+                    "$min": 0.23,
+                    "$max": 0.24
+                }
+            },
+            {
+                "24@percen_label": {
+                    "$number_text": "24",
+                    "$min": 0.24,
+                    "$max": 0.25
+                }
+            },
+            {
+                "25@percen_label": {
+                    "$number_text": "25",
+                    "$min": 0.25,
+                    "$max": 0.26
+                }
+            },
+            {
+                "26@percen_label": {
+                    "$number_text": "26",
+                    "$min": 0.26,
+                    "$max": 0.27
+                }
+            },
+            {
+                "27@percen_label": {
+                    "$number_text": "27",
+                    "$min": 0.27,
+                    "$max": 0.28
+                }
+            },
+            {
+                "28@percen_label": {
+                    "$number_text": "28",
+                    "$min": 0.28,
+                    "$max": 0.29
+                }
+            },
+            {
+                "29@percen_label": {
+                    "$number_text": "29",
+                    "$min": 0.29,
+                    "$max": 0.30
+                }
+            },
+            {
+                "30@percen_label": {
+                    "$number_text": "30",
+                    "$min": 0.30,
+                    "$max": 0.31
+                }
+            },
+            {
+                "31@percen_label": {
+                    "$number_text": "31",
+                    "$min": 0.31,
+                    "$max": 0.32
+                }
+            },
+            {
+                "32@percen_label": {
+                    "$number_text": "32",
+                    "$min": 0.32,
+                    "$max": 0.33
+                }
+            },
+            {
+                "33@percen_label": {
+                    "$number_text": "33",
+                    "$min": 0.33,
+                    "$max": 0.34
+                }
+            },
+            {
+                "34@percen_label": {
+                    "$number_text": "34",
+                    "$min": 0.34,
+                    "$max": 0.35
+                }
+            },
+            {
+                "35@percen_label": {
+                    "$number_text": "35",
+                    "$min": 0.35,
+                    "$max": 0.36
+                }
+            },
+            {
+                "36@percen_label": {
+                    "$number_text": "36",
+                    "$min": 0.36,
+                    "$max": 0.37
+                }
+            },
+            {
+                "37@percen_label": {
+                    "$number_text": "37",
+                    "$min": 0.37,
+                    "$max": 0.38
+                }
+            },
+            {
+                "38@percen_label": {
+                    "$number_text": "38",
+                    "$min": 0.38,
+                    "$max": 0.39
+                }
+            },
+            {
+                "39@percen_label": {
+                    "$number_text": "39",
+                    "$min": 0.39,
+                    "$max": 0.40
+                }
+            },
+            {
+                "40@percen_label": {
+                    "$number_text": "40",
+                    "$min": 0.40,
+                    "$max": 0.41
+                }
+            },
+            {
+                "41@percen_label": {
+                    "$number_text": "41",
+                    "$min": 0.41,
+                    "$max": 0.42
+                }
+            },
+            {
+                "42@percen_label": {
+                    "$number_text": "42",
+                    "$min": 0.42,
+                    "$max": 0.43
+                }
+            },
+            {
+                "43@percen_label": {
+                    "$number_text": "43",
+                    "$min": 0.43,
+                    "$max": 0.44
+                }
+            },
+            {
+                "44@percen_label": {
+                    "$number_text": "44",
+                    "$min": 0.44,
+                    "$max": 0.45
+                }
+            },
+            {
+                "45@percen_label": {
+                    "$number_text": "45",
+                    "$min": 0.45,
+                    "$max": 0.46
+                }
+            },
+            {
+                "46@percen_label": {
+                    "$number_text": "46",
+                    "$min": 0.46,
+                    "$max": 0.47
+                }
+            },
+            {
+                "47@percen_label": {
+                    "$number_text": "47",
+                    "$min": 0.47,
+                    "$max": 0.48
+                }
+            },
+            {
+                "48@percen_label": {
+                    "$number_text": "48",
+                    "$min": 0.48,
+                    "$max": 0.49
+                }
+            },
+            {
+                "49@percen_label": {
+                    "$number_text": "49",
+                    "$min": 0.49,
+                    "$max": 0.50
+                }
+            },
+            {
+                "50@percen_label": {
+                    "$number_text": "50",
+                    "$min": 0.50,
+                    "$max": 0.51
+                }
+            },
+            {
+                "51@percen_label": {
+                    "$number_text": "51",
+                    "$min": 0.51,
+                    "$max": 0.52
+                }
+            },
+            {
+                "52@percen_label": {
+                    "$number_text": "52",
+                    "$min": 0.52,
+                    "$max": 0.53
+                }
+            },
+            {
+                "53@percen_label": {
+                    "$number_text": "53",
+                    "$min": 0.53,
+                    "$max": 0.54
+                }
+            },
+            {
+                "54@percen_label": {
+                    "$number_text": "54",
+                    "$min": 0.54,
+                    "$max": 0.55
+                }
+            },
+            {
+                "55@percen_label": {
+                    "$number_text": "55",
+                    "$min": 0.55,
+                    "$max": 0.56
+                }
+            },
+            {
+                "56@percen_label": {
+                    "$number_text": "56",
+                    "$min": 0.56,
+                    "$max": 0.57
+                }
+            },
+            {
+                "57@percen_label": {
+                    "$number_text": "57",
+                    "$min": 0.57,
+                    "$max": 0.58
+                }
+            },
+            {
+                "58@percen_label": {
+                    "$number_text": "58",
+                    "$min": 0.58,
+                    "$max": 0.59
+                }
+            },
+            {
+                "59@percen_label": {
+                    "$number_text": "59",
+                    "$min": 0.59,
+                    "$max": 0.60
+                }
+            },
+            {
+                "60@percen_label": {
+                    "$number_text": "60",
+                    "$min": 0.60,
+                    "$max": 0.61
+                }
+            },
+            {
+                "61@percen_label": {
+                    "$number_text": "61",
+                    "$min": 0.61,
+                    "$max": 0.62
+                }
+            },
+            {
+                "62@percen_label": {
+                    "$number_text": "62",
+                    "$min": 0.62,
+                    "$max": 0.63
+                }
+            },
+            {
+                "63@percen_label": {
+                    "$number_text": "63",
+                    "$min": 0.63,
+                    "$max": 0.64
+                }
+            },
+            {
+                "64@percen_label": {
+                    "$number_text": "64",
+                    "$min": 0.64,
+                    "$max": 0.65
+                }
+            },
+            {
+                "65@percen_label": {
+                    "$number_text": "65",
+                    "$min": 0.65,
+                    "$max": 0.66
+                }
+            },
+            {
+                "66@percen_label": {
+                    "$number_text": "66",
+                    "$min": 0.66,
+                    "$max": 0.67
+                }
+            },
+            {
+                "67@percen_label": {
+                    "$number_text": "67",
+                    "$min": 0.67,
+                    "$max": 0.68
+                }
+            },
+            {
+                "68@percen_label": {
+                    "$number_text": "68",
+                    "$min": 0.68,
+                    "$max": 0.69
+                }
+            },
+            {
+                "69@percen_label": {
+                    "$number_text": "69",
+                    "$min": 0.69,
+                    "$max": 0.70
+                }
+            },
+            {
+                "70@percen_label": {
+                    "$number_text": "70",
+                    "$min": 0.70,
+                    "$max": 0.71
+                }
+            },
+            {
+                "71@percen_label": {
+                    "$number_text": "71",
+                    "$min": 0.71,
+                    "$max": 0.72
+                }
+            },
+            {
+                "72@percen_label": {
+                    "$number_text": "72",
+                    "$min": 0.72,
+                    "$max": 0.73
+                }
+            },
+            {
+                "73@percen_label": {
+                    "$number_text": "73",
+                    "$min": 0.73,
+                    "$max": 0.74
+                }
+            },
+            {
+                "74@percen_label": {
+                    "$number_text": "74",
+                    "$min": 0.74,
+                    "$max": 0.75
+                }
+            },
+            {
+                "75@percen_label": {
+                    "$number_text": "75",
+                    "$min": 0.75,
+                    "$max": 0.76
+                }
+            },
+            {
+                "76@percen_label": {
+                    "$number_text": "76",
+                    "$min": 0.76,
+                    "$max": 0.77
+                }
+            },
+            {
+                "77@percen_label": {
+                    "$number_text": "77",
+                    "$min": 0.77,
+                    "$max": 0.78
+                }
+            },
+            {
+                "78@percen_label": {
+                    "$number_text": "78",
+                    "$min": 0.78,
+                    "$max": 0.79
+                }
+            },
+            {
+                "79@percen_label": {
+                    "$number_text": "79",
+                    "$min": 0.79,
+                    "$max": 0.80
+                }
+            },
+            {
+                "80@percen_label": {
+                    "$number_text": "80",
+                    "$min": 0.80,
+                    "$max": 0.81
+                }
+            },
+            {
+                "81@percen_label": {
+                    "$number_text": "81",
+                    "$min": 0.81,
+                    "$max": 0.82
+                }
+            },
+            {
+                "82@percen_label": {
+                    "$number_text": "82",
+                    "$min": 0.82,
+                    "$max": 0.83
+                }
+            },
+            {
+                "83@percen_label": {
+                    "$number_text": "83",
+                    "$min": 0.83,
+                    "$max": 0.84
+                }
+            },
+            {
+                "84@percen_label": {
+                    "$number_text": "84",
+                    "$min": 0.84,
+                    "$max": 0.85
+                }
+            },
+            {
+                "85@percen_label": {
+                    "$number_text": "85",
+                    "$min": 0.85,
+                    "$max": 0.86
+                }
+            },
+            {
+                "86@percen_label": {
+                    "$number_text": "86",
+                    "$min": 0.86,
+                    "$max": 0.87
+                }
+            },
+            {
+                "87@percen_label": {
+                    "$number_text": "87",
+                    "$min": 0.87,
+                    "$max": 0.88
+                }
+            },
+            {
+                "88@percen_label": {
+                    "$number_text": "88",
+                    "$min": 0.88,
+                    "$max": 0.89
+                }
+            },
+            {
+                "89@percen_label": {
+                    "$number_text": "89",
+                    "$min": 0.89,
+                    "$max": 0.90
+                }
+            },
+            {
+                "90@percen_label": {
+                    "$number_text": "90",
+                    "$min": 0.90,
+                    "$max": 0.91
+                }
+            },
+            {
+                "91@percen_label": {
+                    "$number_text": "91",
+                    "$min": 0.91,
+                    "$max": 0.92
+                }
+            },
+            {
+                "92@percen_label": {
+                    "$number_text": "92",
+                    "$min": 0.92,
+                    "$max": 0.93
+                }
+            },
+            {
+                "93@percen_label": {
+                    "$number_text": "93",
+                    "$min": 0.93,
+                    "$max": 0.94
+                }
+            },
+            {
+                "94@percen_label": {
+                    "$number_text": "94",
+                    "$min": 0.94,
+                    "$max": 0.95
+                }
+            },
+            {
+                "95@percen_label": {
+                    "$number_text": "95",
+                    "$min": 0.95,
+                    "$max": 0.96
+                }
+            },
+            {
+                "96@percen_label": {
+                    "$number_text": "96",
+                    "$min": 0.96,
+                    "$max": 0.97
+                }
+            },
+            {
+                "97@percen_label": {
+                    "$number_text": "97",
+                    "$min": 0.97,
+                    "$max": 0.98
+                }
+            },
+            {
+                "98@percen_label": {
+                    "$number_text": "98",
+                    "$min": 0.98,
+                    "$max": 0.99
+                }
+            },
+            {
+                "99@percen_label": {
+                    "$number_text": "99",
+                    "$min": 0.99,
+                    "$max": 1.00
+                }
+            },
+            {
+                "100@percen_label": {
+                    "$number_text": "100",
+                    "$min": 1.00,
+                    "$max": 2.00
+                }
+            }
+        ]
+    },
+
+    "cancel_button_world_loading@progress.cancel_button": {
+        "offset": [
+            -5,
+            -34
+        ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right"
+    },
+
+    //Loading Panel Template
+    "asa_none": {
+        "type": "panel",
+        "size": [
+            0,
+            0
+        ]
+    },
+
+    "background_with_panel": {
+        "type": "panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            "100%",
+            "100%"
+        ],
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "layer": -30,
+                    "fill": true,
+                    "uv_size": [
+                        "100%c",
+                        "100%"
+                    ],
+                    "color": "$background_color",
+                    "texture": "$background_image"
+                }
+            },
+            {
+                "panel": {
+                    "type": "panel",
+                    "size": [
+                        "100%",
+                        "100%"
+                    ],
+                    "layer": 30,
+                    "controls": [
+                        {
+                            "@cancel_button_world_loading": {
+                                "layer": 10
+                            }
+                        },
+                        {
+                            "asa_bottom_background": {
+                                "type": "image",
+                                "size": [
+                                    "100%",
+                                    33
+                                ],
+                                "color": [
+                                    0.1,
+                                    0.1,
+                                    0.3
+                                ],
+                                "alpha": 0.8,
+                                "anchor_from": "bottom_middle",
+                                "anchor_to": "bottom_middle",
+                                "texture": "asa_textures/ui/bar/date_a_live_bar",
+                                "controls": [
+                                    {
+                                        "@progress_percentage": {
+                                            "anchor_from": "top_right",
+                                            "anchor_to": "top_right",
+                                            "$asa_bar_visible|default": true,
+                                            "visible": "$asa_bar_visible",
+                                            "offset": [
+                                                -5,
+                                                0
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "asa_bar_stack": {
+                                            "type": "stack_panel",
+                                            "size": [
+                                                "100%cm",
+                                                "100%c"
+                                            ],
+                                            "anchor_from": "top_left",
+                                            "anchor_to": "top_left",
+                                            "offset": [
+                                                5,
+                                                0
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "generator_text": {
+                                                        "type": "label",
+                                                        "size": [
+                                                            "default",
+                                                            "default"
+                                                        ],
+                                                        "font_scale_factor": 1.2,
+                                                        "text": "#title_text",
+                                                        "font_type": "smooth",
+                                                        "layer": 50,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#title_text"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "progress_text": {
+                                                        "type": "label",
+                                                        "size": [
+                                                            "default",
+                                                            "default"
+                                                        ],
+                                                        "text": "#progress_text",
+                                                        "font_type": "smooth",
+                                                        "layer": 50,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#progress_text"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "credit": {
+                                                        "type": "label",
+                                                        "size": [
+                                                            "default",
+                                                            "default"
+                                                        ],
+                                                        "text": "AsaBetter made by Asaki Zuki",
+                                                        "font_type": "smooth",
+                                                        "font_scale_factor": 0.8,
+                                                        "layer": 50,
+                                                        "localize": false
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "asa_empty_bar": {
+                                            "type": "image",
+                                            "size": [
+                                                "100%",
+                                                2
+                                            ],
+                                            "color": [
+                                                0.1,
+                                                0.1,
+                                                0.3
+                                            ],
+                                            "alpha": 0.6,
+                                            "anchor_from": "bottom_middle",
+                                            "anchor_to": "bottom_middle",
+                                            "texture": "asa_textures/ui/bar/date_a_live_bar",
+                                            "$asa_bar_visible|default": true,
+                                            "visible": "$asa_bar_visible",
+                                            "controls": [
+                                                {
+                                                    "asa_bar_loading": {
+                                                        "type": "image",
+                                                        "color": "@asa_extra_animation.rgb_1",
+                                                        "texture": "asa_textures/ui/bar/asa_bar_loading",
+                                                        "clip_direction": "left",
+                                                        "clip_pixelperfect": false,
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "#loading_bar_percentage",
+                                                                "binding_name_override": "#clip_ratio"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "@progresss.popup_dialog_factory": {}
+            }
+        ]
+    }
+}

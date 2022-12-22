@@ -1,0 +1,41 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+  "format_version": "1.8.0",
+
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:bed",
+      "textures": {
+        "default": "asa_textures/waifu_bed/beds/blanc_neptunia",
+        "white": "asa_textures/waifu_bed/beds/blanc_neptunia",
+        "orange": "asa_textures/waifu_bed/beds/elaina",
+        "magenta": "asa_textures/waifu_bed/beds/honjou_nia",
+        "light_blue": "asa_textures/waifu_bed/beds/kotori_itsuka",
+        "yellow": "asa_textures/waifu_bed/beds/marvelous_aql",
+        "lime": "asa_textures/waifu_bed/beds/mio_takamiya",
+        "pink": "asa_textures/waifu_bed/beds/mirai_kuriyama",
+        "gray": "asa_textures/waifu_bed/beds/misaka_mikoto",
+        "silver": "asa_textures/waifu_bed/beds/nakano_nino",
+        "cyan": "asa_textures/waifu_bed/beds/nao_tomori",
+        "purple": "asa_textures/waifu_bed/beds/natsumi_kyouno",
+        "blue": "asa_textures/waifu_bed/beds/rinne_sonogami",
+        "brown": "asa_textures/waifu_bed/beds/shiro",
+        "green": "asa_textures/waifu_bed/beds/tohru",
+        "red": "asa_textures/waifu_bed/beds/tokisaki_kurumi",
+        "black": "asa_textures/waifu_bed/beds/yatogami_tohka"
+      },
+
+      "geometry": {
+        "default": "geometry.bed"
+      }
+    }
+  }
+}

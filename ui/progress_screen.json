@@ -1,0 +1,55 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "realms_loading_progress_screen": {
+        "$screen_content": "progress.progress_screen_content",
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel",
+        "$background_image": "asa_textures/asa_background/loading_bg/loading_bg",
+        "$asa_bar_visible": false,
+        "$background_animations": []
+    },
+
+    "world_loading_progress_screen": {
+        "$screen_content": "progress.progress_screen_content",
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel",
+        "$background_image": "asa_textures/asa_background/loading_bg/loading_bg",
+        "$background_animations": []
+    },
+
+    "world_saving_progress_screen": {
+        "$screen_content": "progress.progress_screen_content",
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel",
+        "$background_image": "asa_textures/asa_background/loading_bg/loading_bg",
+        "$asa_bar_visible": false,
+        "$background_animations": []
+    },
+
+    "overworld_loading_progress_screen@world_loading_progress_screen": {
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel"
+    },
+
+    "nether_loading_progress_screen@world_loading_progress_screen": {
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel"
+    },
+      
+    "theend_loading_progress_screen@world_loading_progress_screen": {
+        "$screen_bg_content": "asa_progress_screen_panel.background_with_panel"
+    },
+    
+
+    "progress_screen_content": {
+        "type": "panel",
+        "controls": [
+            {
+                "popup_dialog_factory@progress.popup_dialog_factory": {}
+            }
+        ]
+    }
+}

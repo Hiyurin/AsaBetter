@@ -1,0 +1,171 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_background_common",
+
+    "start_bg@start_bg_temp": {
+        "$background_image": "asa_textures/asa_background/start_bg",
+        "$background_size": [ "120%", "120%" ],
+        "$bg_offset": "@asa_start_anims.asa_start_bg_1"
+    },
+
+    "music_player_bg@start_bg_temp": {
+        "$background_image": "asa_textures/asa_background/music_player_bg"
+    },
+
+    "setting_bg@background_template": {
+        "$background_image": "asa_textures/asa_background/setting_bg"
+    },
+
+    "play_bg@background_template_2": {
+        "$background_image": "asa_textures/asa_background/play_bg",
+        "$background_color": [ 0.8, 0.8, 0.8 ]
+    },
+
+    //Test
+
+    "background_template": {
+        "layer": "$custom_layer",
+        "$custom_layer|default": -30,
+        "type": "image",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [ "100%", "100%" ],
+        "$asa_bg_visi|default": false,
+        "uv": "",
+
+        "$background_size|default": "none",
+        "$background_color|default": "none",
+        
+
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "layer": "$custom_layer",
+                    "$custom_layer|default": -30,
+                    "fill": true,
+                    "uv_size": [  "100%c",  "100%" ],
+                    "size": "$background_size",
+                    "color": "$background_color",
+                    "texture": "$background_image",
+                    "ignored": "(not $is_pregame)"
+                }
+            },
+            {
+                "black": {
+                    "type": "image",
+                    "layer": -29,
+                    "fill": true,
+                    "uv_size": [  "100%c",  "100%" ],
+                    "size": "$background_size",
+                    "color": [ 0, 0, 0 ],
+                    "visible": "$asa_bg_visi",
+                    "alpha": 0.8,
+                    "texture": "textures/ui/Black",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "$asa_background_binding",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "background_template_2": {
+        "layer": "$custom_layer",
+        "$custom_layer|default": -30,
+        "type": "image",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [ "100%", "100%" ],
+        "$asa_bg_visi|default": false,
+        "uv": "",
+
+        "$background_size|default": "none",
+        "$background_color|default": "none",
+        
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "layer": "$custom_layer",
+                    "$custom_layer|default": -30,
+                    "fill": true,
+                    "uv_size": [  "100%c",  "100%" ],
+                    "size": "$background_size",
+                    "color": "$background_color",
+                    "texture": "$background_image"
+                }
+            }
+        ]
+    },
+
+    //Temp 2
+    "start_bg_temp": {
+        "layer": "$custom_layer",
+        "$custom_layer|default": -30,
+        "type": "image",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [ "100%", "100%" ],
+        "uv": "",
+
+        "$background_size|default": "none",
+        "$background_color|default": "none",
+        
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "layer": "$custom_layer",
+                    "$custom_layer|default": -30,
+                    "fill": true,
+                    "uv_size": [  "100%c",  "100%" ],
+                    "offset": "$bg_offset",
+                    "size": "$background_size",
+                    "color": "$background_color",
+                    "texture": "$background_image"
+                }
+            },
+            {
+                "background": {
+                    "type": "screen",
+                    "layer": 9,
+                    "animation_reset_name": "asa_pressed.exit_section",
+                    "anims": [
+                        "@asa_pressed_anims.asa_open_screen_section_start",
+                        "@asa_pressed_anims.asa_exit_screen_section_start_wait"
+                    ],
+                    "controls": [
+                        {
+                            "background": {
+                                "type": "image",
+                                "fill": true,
+                                "uv_size": [  "100%c",  "100%" ],
+                                "texture": "textures/ui/Black",
+                                "alpha": 0.5,
+                                "animation_reset_name": "asa_pressed.exit_section",
+                                "anims": [
+                                    "@asa_pressed_anims.asa_open_screen_section_start_alpha_wait",
+                                    "@asa_pressed_anims.asa_exit_screen_section_start_alpha"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

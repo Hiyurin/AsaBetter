@@ -1,0 +1,39 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.player.invisible" : {
+			"initial_state" : "asa_invisible_detect",
+			"states" : {
+				"default" : {
+					"transitions" : [
+						{
+							"asa_invisible_detect" : "query.is_invisible"
+						}
+					]
+				},
+
+				"asa_invisible_detect" : {
+					"particle_effects" : [
+						{
+							"effect" : "asa_invisible_detect"
+						}
+					],
+					"transitions" : [
+						{
+							"default" : "!query.is_invisible"
+						}
+					]
+				}
+			}
+		}
+	}
+}

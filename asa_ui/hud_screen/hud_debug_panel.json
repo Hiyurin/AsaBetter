@@ -1,0 +1,508 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_hud_debug",
+
+    "asa_armor_hud": {
+        "renderer": "live_player_renderer",
+        "size": [ 20, 20 ],
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "layer": 999,
+        "type": "custom",
+        "offset": [ 1, 565 ]
+    },
+
+    "asa_offhand_hud": {
+        "renderer": "live_player_renderer",
+        "size": [ 20, 20 ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "layer": 999,
+        "type": "custom",
+        "offset": "$asa_offhand_offset",
+        "$asa_offhand_offset|default": [ -124, -549.8 ],
+        "variables": [
+            {
+                "requires": "$pocket_edition",
+                "$asa_offhand_offset": [ -136, -549.8 ]
+            }
+        ]
+    },
+
+    "asa_offhand_hud_2": {
+        "renderer": "live_player_renderer",
+        "size": [ 20, 20 ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "layer": 999,
+        "type": "custom",
+        "offset": [ -124, -549.8 ]
+    },
+
+    //Clock, Compass, Recovery Compass
+    "asa_item_renderer_template": {
+        "type": "custom",
+        "renderer": "inventory_item_renderer",
+        "size": [ 16, 16 ],
+        "property_bag": {
+            "#item_id_aux": "$asa_item_id"
+        }
+    },
+
+    "asa_c_c_rc_stack": {
+        "size": [ "100%c", "100%cm" ],
+        "type": "stack_panel",
+        "orientation": "horizontal",
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_item_tools",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "no_enchant_panel":{
+                    "size": [ "100%c", "100%cm" ],
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_item_tolls_enchant",
+                            "source_property_name": "(not #toggle_state)",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "clocks@asa_item_renderer_template": {
+                                "$asa_item_id": 25755648,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_clock",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "compass@asa_item_renderer_template": {
+                                "$asa_item_id": 25624576,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "recovery_compass_panel": {
+                                "type": "panel",
+                                "size": [ "100%c", "100%c" ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "add_recovery_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "recovery_compass@asa_item_renderer_template": {
+                                            "$asa_item_id": 42336256
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "enchant_panel":{
+                    "size": [ "100%c", "100%cm" ],
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_item_tolls_enchant",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "clocks@asa_item_renderer_template": {
+                                "$asa_item_id": 25788416,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_clock",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "compass@asa_item_renderer_template": {
+                                "$asa_item_id": 25657344,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "recovery_compass_panel": {
+                                "type": "panel",
+                                "size": [ "100%c", "100%c" ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "add_recovery_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "recovery_compass@asa_item_renderer_template": {
+                                            "$asa_item_id": 42369024
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    
+    //Debug
+    "device_debug": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "texture": "textures/ui/Black",
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_device",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "variables": [
+            {
+                "requires": "$pocket_edition",
+                "$asa_label_debug": "Device: Mobile"
+            },
+            {
+                "requires": "$console_edition",
+                "$asa_label_debug": "Device: Console"
+            },
+            {
+                "requires": "$win10_edition",
+                "$asa_label_debug": "Device: Windows"
+            }
+        ],
+        "controls": [
+            {
+                "device_label": {
+                    "type": "label",
+                    "size": [ "default", "default" ],
+                    "text": "$asa_label_debug",
+                    "layer": 10,
+                    "font_type": "smooth",
+                    "shadow": false
+                }
+            }
+        ]
+    },
+
+    "ui_profile_debug": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "texture": "textures/ui/Black",
+        "alpha": 0.5,
+        "variables": [
+            {
+                "requires": "$desktop_screen",
+                "$asa_label_debug": "UI Profile: Classic"
+            },
+            {
+                "requires": "$pocket_screen",
+                "$asa_label_debug": "UI Profile: Pocket"
+            }
+        ],
+        "controls": [
+            {
+                "ui_profile_lebel": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "$asa_label_debug",
+                    "font_type": "smooth",
+                    "shadow": false
+                }
+            }
+        ]
+    },
+
+    "operating_system_debug": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "texture": "textures/ui/Black",
+        "ignored": "(not $pocket_edition)",
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_os",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "variables": [
+            {
+                "requires": "$is_android",
+                "$asa_label_debug": "Operating System: Android"
+            },
+            {
+                "requires": "($is_ios and $ios)",
+                "$asa_label_debug": "Operating System: iOS"
+            }
+        ],
+        "controls": [
+            {
+                "operating_system_label": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "font_type": "smooth",
+                    "text": "$asa_label_debug",
+                    "shadow": false
+                }
+            }
+        ]
+    },
+
+    "gamemode_debug": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "texture": "textures/ui/Black",
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_gamemode",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "creative": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "Gamemode: Creative",
+                    "shadow": false,
+                    "font_type": "smooth",
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#is_creative_mode",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ]
+                }
+            },
+            {
+                "survival": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "Gamemode: Survival",
+                    "shadow": false,
+                    "font_type": "smooth",
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#show_survival_ui",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#is_not_creative_mode",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ]
+                }
+            },
+            {
+                "spectator": {
+                    "type": "panel", "size": [ "100%c", "100%c" ],
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "(not #show_survival_ui)",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        },
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "(not #is_not_creative_mode)",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "spectator": {
+                                "type": "label",
+                                "layer": 10,
+                                "size": [ "default", "default" ],
+                                "text": "Gamemode: Spectator",
+                                "shadow": false,
+                                "font_type": "smooth",
+                                "bindings": [
+                                    {
+                                        "binding_condition": "always",
+                                        "binding_name": "(not #is_creative_mode)",
+                                        "binding_name_override": "#visible",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "input_debug": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "texture": "textures/ui/Black",
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_input",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "touch": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "Input: Touch",
+                    "shadow": false,
+                    "font_type": "smooth",
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#inventory_touch_button",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ]
+                }
+            },
+            {
+                "keyboard_and_mouse": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "Input: Keyboard and Mouse",
+                    "shadow": false,
+                    "font_type": "smooth",
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#keyboard_helper_visible",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ]
+                }
+            },
+            {
+                "controller": {
+                    "type": "label",
+                    "layer": 10,
+                    "size": [ "default", "default" ],
+                    "text": "Input: Controller",
+                    "shadow": false,
+                    "font_type": "smooth",
+                    "bindings": [
+                        {
+                            "binding_condition": "always",
+                            "binding_name": "#gamepad_helper_visible",
+                            "binding_name_override": "#visible",
+                            "binding_type": "global"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Stack
+    "asa_debug_stack": {
+        "type": "stack_panel",
+        "size": [ "100%cm", "100%c" ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "controls": [
+            {
+                "device@device_debug": {}
+            },
+            /*{
+                "up_pro@ui_profile_debug": {}
+            },*/
+            {
+                "gamemode@gamemode_debug": {}
+            },
+            {
+                "gamemode@input_debug": {}
+            },
+            {
+                "operating_system@operating_system_debug": {}
+            }
+        ]
+    }
+}

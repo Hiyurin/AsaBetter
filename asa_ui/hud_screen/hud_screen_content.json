@@ -1,0 +1,4287 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_hud_content",
+
+    //Hotbar
+    "asa_hotbar_panel": {
+        "type": "panel",
+        "size": [ 180, 22 ],
+        "controls": [
+            {
+                "connected@asa_connected_hotbar": {}
+            },
+            {
+                "default@hud.hotbar_grid": {}
+            },
+            {
+                "rgb_default@asa_rgb_default_hotbar_stack": {}
+            }
+        ]
+    },
+
+    "asa_connected_hotbar": {
+        "type": "image",
+        "size": [ 180, 22 ],
+        "texture": "asa_textures/ui/asa_connected_hotbar",
+        "alpha": 0.7,
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_connected_hotbar",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "asa_rgb_default_hotbar_stack": {
+        "type": "stack_panel",
+        "size": [ 180, 22 ],
+        "anchor_from": "bottom_middle",
+        "anchor_to": "bottom_middle",
+        "orientation": "horizontal",
+        "$custom_anim_duration": 0.4,
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_rgb_default_hotbar",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "1@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_3"
+                }
+            },
+            {
+                "2@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_2"
+                }
+            },
+            {
+                "3@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_1"
+                }
+            },
+            {
+                "4@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_6"
+                }
+            },
+            {
+                "5@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_5"
+                }
+            },
+            {
+                "6@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_4"
+                }
+            },
+            {
+                "7@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_3"
+                }
+            },
+            {
+                "8@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_2"
+                }
+            },
+            {
+                "9@asa_rgb_hotbar_image": {
+                    "$asa_hotbar_rgb_color": "@asa_extra_animation.rgb_1"
+                }
+            }
+        ]
+    },
+
+    "asa_rgb_hotbar_image": {
+        "type": "panel",
+        "size": [ 20, 22 ],
+        "controls": [
+            {
+                "image": {
+                    "type": "image",
+                    "size": [ 21, 23 ],
+                    "color": "$asa_hotbar_rgb_color",
+                    "texture": "asa_textures/ui/asa_default_hotbar"
+                }
+            }
+        ]
+    },
+
+    //Shortcut Button
+    "asa_shortcut_button_stack": {
+        "type": "stack_panel",
+        "size": [ "100%c", "100%cm" ],
+        "orientation": "horizontal",
+        "anchor_from": "bottom_right",
+        "anchor_to": "bottom_right",
+        "bindings": [
+            {
+                "binding_name": "#inventory_touch_button",
+                "binding_name_override": "#visible",
+                "binding_type": "global"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_start_button_template.asa_start_button_template": {
+                    "size": [ 24, 24 ],
+                    "$pressed_button_name": "button.hide_paperdoll_hud",
+                    "$button_text": "F8",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_shortcut_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "empty_panel": {
+                    "type": "panel",
+                    "size": [ 1, 1 ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_shortcut_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "@asa_start_button_template.asa_start_button_template": {
+                    "size": [ 24, 24 ],
+                    "$pressed_button_name": "button.hide_gui_all",
+                    "$button_text": "F1",
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_shortcut_button",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Bossbar Percent
+    "asa_bossbar_percent_bindings": {
+        "$asa_bossbar_bindings": "#progress_percentage",
+        "type": "label",
+        "localize": false,
+        "layer": 10,
+        "shadow": true,
+        "color": "$d_color_format",
+        "bindings": [
+            {
+                "binding_name": "$asa_bossbar_bindings",
+                "binding_type": "collection",
+                "binding_collection_name": "boss_bars"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((($asa_bossbar_bindings > $health_min) and ($asa_bossbar_bindings < $health_max)) or ($asa_bossbar_bindings = $health_min))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "asa_bossbar_percent": {
+        "type": "panel",
+        "size": [ "100%cm", "100%cm" ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "offset": [ 113, 3 ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_health_bar_percent",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_bossbar_background": {}
+            }
+        ]
+    },
+
+    "asa_bossbar_background": {
+        "type": "image",
+        "size": [ "100%cm + 4px", "100%cm + 4px" ],
+        "texture": "asa_textures/ui/asa_background_white",
+        "color": [ 0, 0, 0 ],
+        "alpha": 0.7,
+        "bindings": [
+            {
+                "binding_name": "#bar_visible",
+                "binding_type": "collection",
+                "binding_collection_name": "boss_bars",
+                "binding_name_override": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_bossbar_percent_panel": {}
+            }
+        ]
+    },
+
+    "asa_bossbar_percent_panel": {
+        "type": "panel",
+        "size": [ "100%c", "100%cm" ],
+        "controls": [
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "100%",
+                    "$health_min": 0.00,
+                    "bindings": [
+                        {
+                            "binding_name": "$asa_bossbar_bindings",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "($asa_bossbar_bindings = $health_min)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "99%",
+                    "$health_min": 0.00,
+                    "$health_max": 0.01,
+                    "bindings": [
+                        {
+                            "binding_name": "$asa_bossbar_bindings",
+                            "binding_type": "collection",
+                            "binding_collection_name": "boss_bars"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(($asa_bossbar_bindings > $health_min) and ($asa_bossbar_bindings < $health_max))",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "98%",
+                    "$health_min": 0.01,
+                    "$health_max": 0.02
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "97%",
+                    "$health_min": 0.02,
+                    "$health_max": 0.03
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "96%",
+                    "$health_min": 0.03,
+                    "$health_max": 0.04
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "95%",
+                    "$health_min": 0.04,
+                    "$health_max": 0.05
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "94%",
+                    "$health_min": 0.05,
+                    "$health_max": 0.06
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "93%",
+                    "$health_min": 0.06,
+                    "$health_max": 0.07
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "92%",
+                    "$health_min": 0.07,
+                    "$health_max": 0.08
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "91%",
+                    "$health_min": 0.08,
+                    "$health_max": 0.09
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "90%",
+                    "$health_min": 0.09,
+                    "$health_max": 0.10
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "89%",
+                    "$health_min": 0.10,
+                    "$health_max": 0.11
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "88%",
+                    "$health_min": 0.11,
+                    "$health_max": 0.12
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "87%",
+                    "$health_min": 0.12,
+                    "$health_max": 0.13
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "86%",
+                    "$health_min": 0.13,
+                    "$health_max": 0.14
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "85%",
+                    "$health_min": 0.14,
+                    "$health_max": 0.15
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "84%",
+                    "$health_min": 0.15,
+                    "$health_max": 0.16
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "83%",
+                    "$health_min": 0.16,
+                    "$health_max": 0.17
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "82%",
+                    "$health_min": 0.17,
+                    "$health_max": 0.18
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "81%",
+                    "$health_min": 0.18,
+                    "$health_max": 0.19
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "80%",
+                    "$health_min": 0.19,
+                    "$health_max": 0.20
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "79%",
+                    "$health_min": 0.20,
+                    "$health_max": 0.21
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "78%",
+                    "$health_min": 0.21,
+                    "$health_max": 0.22
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "77%",
+                    "$health_min": 0.22,
+                    "$health_max": 0.23
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "76%",
+                    "$health_min": 0.23,
+                    "$health_max": 0.24
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "75%",
+                    "$health_min": 0.24,
+                    "$health_max": 0.25
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "74%",
+                    "$health_min": 0.25,
+                    "$health_max": 0.26
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "73%",
+                    "$health_min": 0.26,
+                    "$health_max": 0.27
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "72%",
+                    "$health_min": 0.27,
+                    "$health_max": 0.28
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "71%",
+                    "$health_min": 0.28,
+                    "$health_max": 0.29
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "70%",
+                    "$health_min": 0.29,
+                    "$health_max": 0.30
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "69%",
+                    "$health_min": 0.30,
+                    "$health_max": 0.31
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "68%",
+                    "$health_min": 0.31,
+                    "$health_max": 0.32
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "67%",
+                    "$health_min": 0.32,
+                    "$health_max": 0.33
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "66%",
+                    "$health_min": 0.33,
+                    "$health_max": 0.34
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "65%",
+                    "$health_min": 0.34,
+                    "$health_max": 0.35
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "64%",
+                    "$health_min": 0.35,
+                    "$health_max": 0.36
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "63%",
+                    "$health_min": 0.36,
+                    "$health_max": 0.37
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "62%",
+                    "$health_min": 0.37,
+                    "$health_max": 0.38
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "61%",
+                    "$health_min": 0.38,
+                    "$health_max": 0.39
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "60%",
+                    "$health_min": 0.39,
+                    "$health_max": 0.40
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "59%",
+                    "$health_min": 0.40,
+                    "$health_max": 0.41
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "58%",
+                    "$health_min": 0.41,
+                    "$health_max": 0.42
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "57%",
+                    "$health_min": 0.42,
+                    "$health_max": 0.43
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "56%",
+                    "$health_min": 0.43,
+                    "$health_max": 0.44
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "55%",
+                    "$health_min": 0.44,
+                    "$health_max": 0.45
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "54%",
+                    "$health_min": 0.45,
+                    "$health_max": 0.46
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "53%",
+                    "$health_min": 0.46,
+                    "$health_max": 0.47
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "52%",
+                    "$health_min": 0.47,
+                    "$health_max": 0.48
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "51%",
+                    "$health_min": 0.48,
+                    "$health_max": 0.49
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "50%",
+                    "$health_min": 0.49,
+                    "$health_max": 0.50
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "49%",
+                    "$health_min": 0.50,
+                    "$health_max": 0.51
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "48%",
+                    "$health_min": 0.51,
+                    "$health_max": 0.52
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "47%",
+                    "$health_min": 0.52,
+                    "$health_max": 0.53
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "46%",
+                    "$health_min": 0.53,
+                    "$health_max": 0.54
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "45%",
+                    "$health_min": 0.54,
+                    "$health_max": 0.55
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "44%",
+                    "$health_min": 0.55,
+                    "$health_max": 0.56
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "43%",
+                    "$health_min": 0.56,
+                    "$health_max": 0.57
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "42%",
+                    "$health_min": 0.57,
+                    "$health_max": 0.58
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "41%",
+                    "$health_min": 0.58,
+                    "$health_max": 0.59
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "40%",
+                    "$health_min": 0.59,
+                    "$health_max": 0.60
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "39%",
+                    "$health_min": 0.60,
+                    "$health_max": 0.61
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "38%",
+                    "$health_min": 0.61,
+                    "$health_max": 0.62
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "37%",
+                    "$health_min": 0.62,
+                    "$health_max": 0.63
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "36%",
+                    "$health_min": 0.63,
+                    "$health_max": 0.64
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "35%",
+                    "$health_min": 0.64,
+                    "$health_max": 0.65
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "34%",
+                    "$health_min": 0.65,
+                    "$health_max": 0.66
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "33%",
+                    "$health_min": 0.66,
+                    "$health_max": 0.67
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "32%",
+                    "$health_min": 0.67,
+                    "$health_max": 0.68
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "31%",
+                    "$health_min": 0.68,
+                    "$health_max": 0.69
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "30%",
+                    "$health_min": 0.69,
+                    "$health_max": 0.70
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "29%",
+                    "$health_min": 0.70,
+                    "$health_max": 0.71
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "28%",
+                    "$health_min": 0.71,
+                    "$health_max": 0.72
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "27%",
+                    "$health_min": 0.72,
+                    "$health_max": 0.73
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "26%",
+                    "$health_min": 0.73,
+                    "$health_max": 0.74
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "25%",
+                    "$health_min": 0.74,
+                    "$health_max": 0.75
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "24%",
+                    "$health_min": 0.75,
+                    "$health_max": 0.76
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "23%",
+                    "$health_min": 0.76,
+                    "$health_max": 0.77
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "22%",
+                    "$health_min": 0.77,
+                    "$health_max": 0.78
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "21%",
+                    "$health_min": 0.78,
+                    "$health_max": 0.79
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "20%",
+                    "$health_min": 0.79,
+                    "$health_max": 0.80
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "19%",
+                    "$health_min": 0.80,
+                    "$health_max": 0.81
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "18%",
+                    "$health_min": 0.81,
+                    "$health_max": 0.82
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "17%",
+                    "$health_min": 0.82,
+                    "$health_max": 0.83
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "16%",
+                    "$health_min": 0.83,
+                    "$health_max": 0.84
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "15%",
+                    "$health_min": 0.84,
+                    "$health_max": 0.85
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "14%",
+                    "$health_min": 0.85,
+                    "$health_max": 0.86
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "13%",
+                    "$health_min": 0.86,
+                    "$health_max": 0.87
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "12%",
+                    "$health_min": 0.87,
+                    "$health_max": 0.88
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "11%",
+                    "$health_min": 0.88,
+                    "$health_max": 0.89
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "10%",
+                    "$health_min": 0.89,
+                    "$health_max": 0.80
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "9%",
+                    "$health_min": 0.90,
+                    "$health_max": 0.91
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "8%",
+                    "$health_min": 0.91,
+                    "$health_max": 0.92
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "7%",
+                    "$health_min": 0.92,
+                    "$health_max": 0.93
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "6%",
+                    "$health_min": 0.93,
+                    "$health_max": 0.94
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "5%",
+                    "$health_min": 0.94,
+                    "$health_max": 0.95
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "4%",
+                    "$health_min": 0.95,
+                    "$health_max": 0.96
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "3%",
+                    "$health_min": 0.96,
+                    "$health_max": 0.97
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "2%",
+                    "$health_min": 0.97,
+                    "$health_max": 0.98
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "1%",
+                    "$health_min": 0.98,
+                    "$health_max": 0.99
+                }
+            },
+            {
+                "@asa_bossbar_percent_bindings": {
+                    "text": "0%",
+                    "$health_min": 0.99,
+                    "$health_max": 1.00
+                }
+            }
+        ]
+    },
+
+    //Mand Hand Slot
+    "asa_mand_hand_slot_gird": {
+        "type": "grid",
+        "grid_item_template": "asa_hud_content.asa_hotbar_gird_items",
+        "grid_dimension_binding": "#hotbar_grid_dimensions",
+        "collection_name": "hotbar_items",
+        "size": [ "100%cm", "100%cm" ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_main_hand_slot",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_name": "#hotbar_grid_dimensions",
+                "binding_type": "global"
+            }
+        ]
+    },
+
+    "asa_hotbar_gird_items": {
+        "type": "panel",
+        "layer": 1,
+        "anchor_to": "center",
+        "anchor_from": "center",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "asa_maindhand_slot_panel": {
+                    "type": "panel",
+                    "size": [ 22, 22 ],
+                    "controls": [
+                        {
+                            "cooldown_renderer": {
+                                "type": "custom",
+                                "renderer": "hotbar_cooldown_renderer",
+                                "size": [ 20, 20 ],
+                                "layer": 9,
+                                "bindings": [
+                                    {
+                                        "binding_collection_name": "hotbar_items",
+                                        "binding_type": "collection_details"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "stack_count_label": {
+                                "type": "label",
+                                "color": "$item_stack_count_color",
+                                "offset": [ -1, -0.5 ],
+                                "anchor_to": "bottom_right",
+                                "anchor_from": "bottom_right",
+                                "layer": 7,
+                                "shadow": true,
+                                "text": "#inventory_stack_count",
+                                "max_size": [ 22, 22 ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#inventory_stack_count",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#stack_count_visible",
+                                        "binding_name_override": "#visible",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "#hotbar_items"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "durability_bar": {
+                                "type": "custom",
+                                "renderer": "progress_bar_renderer",
+                                "layer": 10,
+                                "offset": [ 0, 5 ],
+                                "size": [ 12, 1 ],
+                                "property_bag": {
+                                    "is_durability": true,
+                                    "round_value": true
+                                },
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_durability_visible",
+                                        "binding_name_override": "#progress_bar_visible",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#item_durability_total_amount",
+                                        "binding_name_override": "#progress_bar_total_amount",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#item_durability_current_amount",
+                                        "binding_name_override": "#progress_bar_current_amount",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item_renderer": {
+                                "type": "custom",
+                                "renderer": "inventory_item_renderer",
+                                "layer": 5,
+                                "size": [ 16, 16 ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#charged_item",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#item_custom_color",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#banner_patterns",
+                                        "binding_condition": "visible",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#banner_colors",
+                                        "binding_condition": "visible",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#banner_type",
+                                        "binding_condition": "visible",
+                                        "binding_collection_name": "hotbar_items",
+                                        "binding_type": "collection"
+                                    },
+                                    {
+                                        "binding_type": "collection",
+                                        "binding_name": "#show_item",
+                                        "binding_name_override": "#visible",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#inactive_item",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items",
+                                        "binding_name_override": "#disabled_filter_visible"
+                                    },
+                                    {
+                                        "binding_name": "#shield_is_active",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_name": "#item_lodestone_tracking_handle",
+                                        "binding_condition": "visible",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "slot_image": {
+                                            "type": "image",
+                                            "texture": "asa_textures/ui/header_bg",
+                                            "size": [ 22, 22 ],
+                                            "layer": -5,
+                                            "color": [ 0, 0, 0 ],
+                                            "bindings": [
+                                                {
+                                                    "binding_name": "#item_id_aux",
+                                                    "binding_type": "collection",
+                                                    "binding_collection_name": "hotbar_items"
+                                                },
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_property_name": "(not (#item_id_aux = -1))",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "asa_shiny_pots_panel": {
+                                                        "type": "panel",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_control_name": "asa_shiny_potions",
+                                                                "source_property_name": "#toggle_state",
+                                                                "target_property_name": "#visible"
+                                                            }
+                                                        ],
+                                                        "controls": [
+                                                            {
+                                                                "asa_shity_potion": {
+                                                                    "type": "panel",
+                                                                    "bindings": [
+                                                                        {
+                                                                            "binding_name": "#item_id_aux",
+                                                                            "binding_type": "collection",
+                                                                            "binding_collection_name": "hotbar_items"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "view",
+                                                                            "source_property_name": "('§z' + #item_id_aux)",
+                                                                            "target_property_name": "#asa_item_aux_id"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "view",
+                                                                            "source_property_name": "(not ((#asa_item_aux_id ='§z27918340') or (#asa_item_aux_id ='§z27918339') or (#asa_item_aux_id ='§z36765700') or (#asa_item_aux_id ='§z36765699') or (#asa_item_aux_id ='§z36831236') or (#asa_item_aux_id ='§z36831235')))",
+                                                                            "target_property_name": "#visible"
+                                                                        }
+                                                                    ],
+                                                                    "controls": [
+                                                                        {
+                                                                            "shiny_potion_1": {
+                                                                                "type": "image",
+                                                                                "texture": "asa_textures/ui/asa_pixel",
+                                                                                "layer": 9,
+                                                                                "alpha": 0.3,
+                                                                                "color": [ 1.0, 0.333, 1.0 ],
+                                                                                "size": [ 20, 20 ],
+                                                                                "bindings": [
+                                                                                    {
+                                                                                        "binding_name": "#item_id_aux",
+                                                                                        "binding_type": "collection",
+                                                                                        "binding_collection_name": "hotbar_items"
+                                                                                    },
+                                                                                    {
+                                                                                        "binding_type": "view",
+                                                                                        "source_property_name": "((#item_id_aux = 27918341) or ((#item_id_aux > 27918341) and (#item_id_aux < 27918379)))",
+                                                                                        "target_property_name": "#visible"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "shiny_potion_2": {
+                                                                                "type": "image",
+                                                                                "texture": "asa_textures/ui/asa_pixel",
+                                                                                "layer": 9,
+                                                                                "alpha": 0.3,
+                                                                                "color": [ 1.0, 0.333, 1.0 ],
+                                                                                "size": [ 20, 20 ],
+                                                                                "bindings": [
+                                                                                    {
+                                                                                        "binding_name": "#item_id_aux",
+                                                                                        "binding_type": "collection",
+                                                                                        "binding_collection_name": "hotbar_items"
+                                                                                    },
+                                                                                    {
+                                                                                        "binding_type": "view",
+                                                                                        "source_property_name": "(((#item_id_aux > 36765698) and (#item_id_aux < 36765739)) or ((#item_id_aux > 36831234) and (#item_id_aux < 36831275)))",
+                                                                                        "target_property_name": "#visible"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Mand Hand Potion Icon
+    "asa_mainhand_potion_icon": {
+        "type": "grid",
+        "grid_item_template": "asa_hud_content.asa_mainhand_potion_icon_items",
+        "grid_dimension_binding": "#hotbar_grid_dimensions",
+        "collection_name": "hotbar_items",
+        "size": [ 0, 0 ],
+        "offset": [ 12, 12 ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_potion_icons",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_name": "#hotbar_grid_dimensions",
+                "binding_type": "global"
+            }
+        ]
+    },
+
+    "asa_mainhand_potion_icon_items": {
+        "type": "panel",
+        "layer": 1,
+        "anchor_to": "center",
+        "anchor_from": "top_left",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "asa_maindhand_slot_panel": {
+                    "type": "panel",
+                    "size": [ 16, 16 ],
+                    "controls": [
+                        {
+                            "night_vision_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/night_vision_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918341') or (#asa_item_aux_id ='§z27918342') or (#asa_item_aux_id ='§z36765701') or (#asa_item_aux_id ='§z36765702') or (#asa_item_aux_id ='§z36831237') or (#asa_item_aux_id ='§z36831238'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "invisibility_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/invisibility_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918343') or (#asa_item_aux_id ='§z27918344') or (#asa_item_aux_id ='§z36765703') or (#asa_item_aux_id ='§z36765704') or (#asa_item_aux_id ='§z36831239') or (#asa_item_aux_id ='§z36831240'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "jump_boost_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/jump_boost_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918345') or (#asa_item_aux_id ='§z27918346') or (#asa_item_aux_id ='§z27918347') or (#asa_item_aux_id ='§z36765705') or (#asa_item_aux_id ='§z36765706')  or (#asa_item_aux_id ='§z36765707') or (#asa_item_aux_id ='§z36831241') or (#asa_item_aux_id ='§z36831242') or (#asa_item_aux_id ='§z36831243'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "fire_resistance_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/fire_resistance_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918348') or (#asa_item_aux_id ='§z27918349') or (#asa_item_aux_id ='§z36765708') or (#asa_item_aux_id ='§z36765709') or (#asa_item_aux_id ='§z36831244') or (#asa_item_aux_id ='§z36831245' ))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "speed_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/speed_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918350') or (#asa_item_aux_id ='§z27918351') or (#asa_item_aux_id ='§z27918352') or (#asa_item_aux_id ='§z36765710') or (#asa_item_aux_id ='§z36765711')  or (#asa_item_aux_id ='§z36765712') or (#asa_item_aux_id ='§z36831246') or (#asa_item_aux_id ='§z36831247') or (#asa_item_aux_id ='§z36831248'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "slowness_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/slowness_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918353') or (#asa_item_aux_id ='§z27918354') or (#asa_item_aux_id ='§z36765713') or (#asa_item_aux_id ='§z36765714')  or (#asa_item_aux_id ='§z36831249') or (#asa_item_aux_id ='§z36831250'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "water_breathing_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/water_breathing_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918355') or (#asa_item_aux_id ='§z27918356') or (#asa_item_aux_id ='§z36765715') or (#asa_item_aux_id ='§z36765716')  or (#asa_item_aux_id ='§z36831251') or (#asa_item_aux_id ='§z36831252'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "instant_health_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/instant_health_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918357') or (#asa_item_aux_id ='§z27918358') or (#asa_item_aux_id ='§z36765717') or (#asa_item_aux_id ='§z36765718')  or (#asa_item_aux_id ='§z36831253') or (#asa_item_aux_id ='§z36831254'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "instant_damage_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/instant_damage_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918359') or (#asa_item_aux_id ='§z27918360') or (#asa_item_aux_id ='§z36765719') or (#asa_item_aux_id ='§z36765720')  or (#asa_item_aux_id ='§z36831255') or (#asa_item_aux_id ='§z36831256'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "poison_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/poison_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918361') or (#asa_item_aux_id ='§z27918362') or (#asa_item_aux_id ='§z27918363') or (#asa_item_aux_id ='§z36765721') or (#asa_item_aux_id ='§z36765722') or (#asa_item_aux_id ='§z36765723') or (#asa_item_aux_id ='§z36831257') or (#asa_item_aux_id ='§z36831258') or (#asa_item_aux_id ='§z36831259'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "regeneration_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/regeneration_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918364') or (#asa_item_aux_id ='§z27918365') or (#asa_item_aux_id ='§z27918366') or (#asa_item_aux_id ='§z36765724') or (#asa_item_aux_id ='§z36765725') or (#asa_item_aux_id ='§z36765726') or (#asa_item_aux_id ='§z36831260') or (#asa_item_aux_id ='§z36831261') or (#asa_item_aux_id ='§z36831262'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "strength_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/strength_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918367') or (#asa_item_aux_id ='§z27918368') or (#asa_item_aux_id ='§z27918369') or (#asa_item_aux_id ='§z36765727') or (#asa_item_aux_id ='§z36765728') or (#asa_item_aux_id ='§z36765729') or (#asa_item_aux_id ='§z36831263') or (#asa_item_aux_id ='§z36831264') or (#asa_item_aux_id ='§z36831265'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "weakness_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/weakness_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918370') or (#asa_item_aux_id ='§z27918371') or (#asa_item_aux_id ='§z36765730') or (#asa_item_aux_id ='§z36765731') or (#asa_item_aux_id ='§z36831266') or (#asa_item_aux_id ='§z36831267'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "wither_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/wither_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918372') or (#asa_item_aux_id ='§z36765732') or (#asa_item_aux_id ='§z36831268'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "turtle_master_potion_panel": {
+                                "type": "panel",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918373') or (#asa_item_aux_id ='§z27918374') or (#asa_item_aux_id ='§z27918375') or (#asa_item_aux_id ='§z36765733') or (#asa_item_aux_id ='§z36765734') or (#asa_item_aux_id ='§z36765735') or (#asa_item_aux_id ='§z36831269') or (#asa_item_aux_id ='§z36831270') or (#asa_item_aux_id ='§z36831271'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "slowness_icon": {
+                                            "type": "image",
+                                            "layer": 20,
+                                            "texture": "textures/ui/slowness_effect"
+                                        }
+                                    },
+                                    {
+                                        "resistance_icon": {
+                                            "type": "image",
+                                            "layer": 21,
+                                            "offset": [ "45%", "45%" ],
+                                            "texture": "textures/ui/resistance_effect"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "slow_falling_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/slow_falling_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918376') or (#asa_item_aux_id ='§z27918377') or (#asa_item_aux_id ='§z36765736') or (#asa_item_aux_id ='§z36765737') or (#asa_item_aux_id ='§z36831272') or (#asa_item_aux_id ='§z36831273'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "slowness_icon": {
+                                "type": "image",
+                                "layer": 20,
+                                "texture": "textures/ui/slowness_effect",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('§z' + #item_id_aux)",
+                                        "target_property_name": "#asa_item_aux_id"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "((#asa_item_aux_id ='§z27918378') or (#asa_item_aux_id ='§z36765738') or (#asa_item_aux_id ='§z36831274'))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Item AUX Viewer
+    "asa_mainhand_item_aux_id": {
+        "type": "grid",
+        "grid_item_template": "asa_hud_content.asa_item_aux_viewer_panel",
+        "grid_dimension_binding": "#hotbar_grid_dimensions",
+        "collection_name": "hotbar_items",
+        "size": [ "100%cm", 0 ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [ -35, -2 ],
+        "bindings": [
+            {
+                "binding_name": "#hotbar_grid_dimensions",
+                "binding_type": "global"
+            }
+        ]
+    },
+
+    "asa_item_aux_viewer_panel": {
+        "type": "panel",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_item_aux_id_viewer_bg": {}
+            }
+        ]
+    },
+
+    "asa_item_aux_id_viewer_bg": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "offset": [ 2, 0 ],
+        "layer": -5,
+        "texture": "asa_textures/ui/asa_background_white",
+        "color": [ 0, 0, 0 ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (#item_id_aux = -1))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_item_aux_id_viewer": {}
+            }
+        ]
+    },
+
+    "asa_item_aux_id_viewer": {
+        "type": "label",
+        "text": "#text",
+        "layer": 1,
+        "localize": false,
+        "font_scale_factor": 0.8,
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "('Aux ID: §z' + #item_id_aux)",
+                "target_property_name": "#text"
+            }
+        ]
+    },
+
+    //Item Name Text
+    "asa_item_name_text_panel": {
+        "type": "panel",
+        "size": [ "100%cm", "100%cm" ],
+        "anchor_from": "right_middle",
+        "anchor_to": "right_middle",
+
+        "$wait_duration|default": 1,
+        "$destroy_id|default": "item_name_text",
+        "$show_interact_padding|default": false,
+        "$show_survival_padding|default": false,
+        "$show_text_background|default": false,
+        "$text_color|default": "$tool_tip_text",
+        "$text_binding|default": "#item_text",
+
+        "controls": [
+            {
+                "item_name_text_stack": {
+                    "type": "stack_panel",
+                    "size": [ "100%cm", "100%c" ],
+                    "bindings": [
+                        {
+                            "binding_type": "view",
+                            "source_control_name": "asa_name_text",
+                            "source_property_name": "#toggle_state",
+                            "target_property_name": "#visible"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "item_name_text_panel": {
+                                "type": "panel",
+                                "size": [ "100%cm", "100%cm" ],
+                                "controls": [
+                                    {
+                                        "item_text_background": {
+                                            "type": "image",
+                                            "size": [ "100%sm + 12px", "100%sm + 5px" ],
+                                            "texture": "textures/ui/hud_tip_text_background",
+                                            "alpha": "@hud.anim_item_name_background_alpha_in",
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "item_name_background",
+                                                    "source_property_name": "#toggle_state",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "item_name_text_with_background": {
+                                            "type": "panel",
+                                            "size": [ "100%cm", "100%cm" ],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "item_name_background",
+                                                    "source_property_name": "#toggle_state",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                
+                                                {
+                                                    "item_name_label": {
+                                                        "type": "label",
+                                                        "max_size": [ 200, "default" ],
+                                                        "text_alignment": "center",
+                                                        "layer": 31,
+                                                        "color": "$text_color",
+                                                        "text": "#text",
+                                                        "alpha": "@hud.anim_item_name_text_alpha_in",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "$text_binding",
+                                                                "binding_name_override": "#text"
+                                                            },
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_control_name": "asa_default_item_name",
+                                                                "source_property_name": "#toggle_state",
+                                                                "target_property_name": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "java_item_name_text": {
+                                                        "type": "panel",
+                                                        "size": [ "100%c", 10 ],
+                                                        "clips_children": true,
+                                                        
+                                                        "controls": [
+                                                            {
+                                                                "item_name_label": {
+                                                                    "type": "label",
+                                                                    "text_alignment": "center",
+                                                                    "anchor_from": "top_middle",
+                                                                    "anchor_to": "top_middle",
+                                                                    "layer": 31,
+                                                                    "color": "$text_color",
+                                                                    "text": "#text",
+                                                                    "alpha": "@hud.anim_item_name_text_alpha_in",
+                                                                    "bindings": [
+                                                                        {
+                                                                            "binding_name": "$text_binding",
+                                                                            "binding_name_override": "#text"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "view",
+                                                                            "source_control_name": "asa_java_item_name",
+                                                                            "source_property_name": "#toggle_state",
+                                                                            "target_property_name": "#visible"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    },
+            
+                                    {
+                                        "item_name_text_without_background": {
+                                            "type": "panel",
+                                            "size": [ "100%cm", "100%cm" ],
+                                            "bindings": [
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_control_name": "item_name_background",
+                                                    "source_property_name": "(not #toggle_state)",
+                                                    "target_property_name": "#visible"
+                                                }
+                                            ],
+                                            "controls": [
+                                                {
+                                                    "item_name_label": {
+                                                        "type": "label",
+                                                        "max_size": [ 200, "default" ],
+                                                        "text_alignment": "center",
+                                                        "layer": 31,
+                                                        "color": "$text_color",
+                                                        "text": "#text",
+                                                        "shadow": true,
+                                                        "alpha": "@hud.anim_item_name_text_alpha_in",
+                                                        "bindings": [
+                                                            {
+                                                                "binding_name": "$text_binding",
+                                                                "binding_name_override": "#text"
+                                                            },
+                                                            {
+                                                                "binding_type": "view",
+                                                                "source_control_name": "asa_default_item_name",
+                                                                "source_property_name": "#toggle_state",
+                                                                "target_property_name": "#visible"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "java_item_name_text": {
+                                                        "type": "panel",
+                                                        "size": [ "100%c + 2px", 11 ],
+                                                        "clips_children": true,
+                                                        
+                                                        "controls": [
+                                                            {
+                                                                "item_name_label": {
+                                                                    "type": "label",
+                                                                    "text_alignment": "center",
+                                                                    "anchor_from": "top_middle",
+                                                                    "anchor_to": "top_middle",
+                                                                    "layer": 31,
+                                                                    "color": "$text_color",
+                                                                    "text": "#text",
+                                                                    "shadow": true,
+                                                                    "alpha": "@hud.anim_item_name_text_alpha_in",
+                                                                    "bindings": [
+                                                                        {
+                                                                            "binding_name": "$text_binding",
+                                                                            "binding_name_override": "#text"
+                                                                        },
+                                                                        {
+                                                                            "binding_type": "view",
+                                                                            "source_control_name": "asa_java_item_name",
+                                                                            "source_property_name": "#toggle_state",
+                                                                            "target_property_name": "#visible"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+
+                        {
+                            "interact_padding@common.empty_panel": {
+                                "visible": "$show_interact_padding",
+                                "size": [ "100%sm", 18 ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#interact_visible",
+                                        "binding_name_override": "#visible",
+                                        "binding_condition": "always"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "survival_panel": {
+                                "type": "panel",
+                                "size": [ "100%cm", "100%cm" ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_creative_exp_bar",
+                                        "source_property_name": "(not #toggle_state)",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "survival_buffer@common.empty_panel": {
+                                            "visible": "$show_survival_padding",
+                                            "size": [ "100%sm", 17 ],
+                                            "bindings": [
+                                                
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "creative": {
+                                "type": "panel",
+                                "size": [ "100%sm", 17 ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_creative_exp_bar",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "armor_buffer@common.empty_panel": {
+                                "visible": false,
+                                "size": [ "100%sm", 8 ],
+                                "bindings": [
+                                    {
+                                        "binding_name": "#is_in_classic_ui_mode_with_visible_armor",
+                                        "binding_name_override": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Chat panel
+    "asa_chat_panel": {
+        "type": "panel",
+        "clips_children": true,
+
+        "size": [ "40%", "100%c" ],
+        "max_size": [ "40%", 140 ],
+        
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        
+        "controls": [
+            {
+                "stack_panel": {
+                    "type": "stack_panel",
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "factory": {
+                        "name": "chat_item_factory",
+                        "max_children_size": 50,
+                        "control_ids": {
+                            "chat_item": "asa_chat_item@asa_hud_content.asa_chat_grid_item"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+
+    "asa_bottom_chat_panel": {
+        "type": "panel",
+        "clips_children": true,
+        "size": [ "40%", "100%c" ],
+        "max_size": [ "40%", 140 ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "controls": [
+            {
+                "stack_panel": {
+                    "type": "stack_panel",
+                    "anchor_from": "bottom_left",
+                    "anchor_to": "bottom_left",
+                    "factory": {
+                        "name": "chat_item_factory",
+                        "max_children_size": 50,
+                        "control_ids": {
+                            "chat_item": "asa_chat_item@asa_hud_content.asa_bottom_chat_gird_item"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+
+    "asa_chat_label": {
+        "localize": false,
+
+        "anchor_from": "center",
+        "anchor_to": "center",
+
+        "type": "label",
+        "layer": 31,
+        "text": "#text",
+        "size": [ "100% - 4px", "default" ],
+        "shadow": true,
+
+        "bindings": [
+            {
+                "binding_name": "#chat_text",
+                "binding_name_override": "#text",
+                "binding_type": "collection",
+                "binding_collection_name": "chat_text_grid",
+                "binding_condition": "once"
+            }
+        ]
+    },
+
+    "asa_anim_chat_entrance": {
+        "anim_type": "offset",
+        "easing": "out_sine",
+        "duration": 0.9,
+        "from": [ "-100% + 15px", 0 ],
+        "to": [ 0, 0 ],
+        "next": "@asa_hud_content.asa_anim_chat_wait"
+    },
+
+    "asa_anim_chat_wait": {
+        "anim_type": "wait",
+        "duration": 3,
+        "next": "@asa_hud_content.asa_anim_chat_exit"
+    },
+
+    "asa_anim_chat_exit": {
+        "anim_type": "offset",
+        "easing": "in_quad",
+        "duration": 1.2,
+        "from": [ 0, 0 ],
+        "to": [ "-100% + 15px", 0 ],
+        "destroy_at_end": "chat_grid_item"
+    },
+
+    "asa_chat_grid_item": {
+        "type": "panel",
+        "layer": 1,
+        "size": [ "100% - 2px", "100%c" ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "controls": [
+            {
+                "chat_background": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "alpha": 0.5,
+                    "size": [ "100%", "100%c + 4px" ],
+                    "anims": [
+                        "@asa_hud_content.asa_anim_chat_entrance"
+                    ],
+                    "controls": [
+                        {
+                            "chat_text@asa_chat_label": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_bottom_chat_gird_item": {
+        "type": "panel",
+        "layer": 1,
+        "size": [ "100% - 2px", "100%c" ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "controls": [
+            {
+                "chat_background": {
+                    "type": "image",
+                    "texture": "textures/ui/Black",
+                    "alpha": 0.5,
+                    "size": [ "100%", "100%c + 4px" ],
+                    "anims": [
+                        "@asa_hud_content.asa_anim_chat_entrance"
+                    ],
+                    "controls": [
+                        {
+                            "chat_text@asa_chat_label": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Coordinates
+    "asa_position": {
+        "type": "image",
+        "size": [ "100%c + 4px", 12 ],
+        "color": [ 0, 0 ,0 ],
+        "alpha": 0.5,
+        "texture": "asa_textures/ui/asa_background_white",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "offset": [ 1, 1 ],
+        "controls": [
+            {
+                "asa_position_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", 10 ],
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_name": "#player_position_visible",
+                            "binding_name_override": "#visible",
+                            "binding_condition": "always",
+                            "binding_type": "global"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "asa_text": {
+                                "type": "label",
+                                "size": [ "default", 10 ],
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "bindings": [
+                                    {
+                                        "binding_name": "#player_position_text",
+                                        "binding_name_override": "#text",
+                                        "binding_condition": "always_when_visible",
+                                        "binding_type": "global"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "asa_position_disable_panel": {
+                    "type": "panel",
+                    "size": [ "100%c", 10 ],
+                    "layer": 2,
+                    "bindings": [
+                        {
+                            "binding_name": "(not #player_position_visible)",
+                            "binding_name_override": "#visible",
+                            "binding_condition": "always",
+                            "binding_type": "global"
+                        }
+                    ],
+                    "controls": [
+                        {
+                            "asa_text": {
+                                "type": "label",
+                                "size": [ "default", 10 ],
+                                "max_size": [ "default", 10 ],
+                                "text": "Position: Disable"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    //Item Info
+    "asa_item_info_panel": {
+        "type": "image",
+        "size": [ "100%cm + 4px", "100%cm + 4px" ],
+        "color": [ 0, 0, 0 ],
+        "alpha": 0.7,
+        "texture": "asa_textures/ui/button_and_toggle/square_button",
+        "layer": 10,
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle",
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (#item_id_aux = -1))",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "label_stack": {
+                    "type": "stack_panel",
+                    "size": [ "100%cm", "100%c" ],
+                    "controls": [
+                        {
+                            "aux": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_id_aux",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('AUX ID: §z' + #item_id_aux)",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "custom_color": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_custom_color",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Custom Color ID: §z' + #item_custom_color)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#item_custom_color = -1))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "pickup_time": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_pickup_time",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Pickup Time ID: §z' + #item_pickup_time)",
+                                        "target_property_name": "#text"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "banner_patterns": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#banner_patterns",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Banner Patterns ID: §z' + #banner_patterns)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#banner_patterns = ''))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "banner_colors": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#banner_colors",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Banner Colors ID: §z' + #banner_colors)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#banner_colors = 0))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "banner_type": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#banner_type",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Banner Type ID: §z' + #banner_type)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#banner_type = 0))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            
+                            "shield_is_active": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#shield_is_active",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Shield Is Active: §z' + #shield_is_active)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#shield_is_active = false))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            
+                            "item_lodestone_tracking_handle": {
+                                "type": "label",
+                                "max_size": [ "default", 10 ],
+                                "text": "#text",
+                                "layer": 20,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#item_lodestone_tracking_handle",
+                                        "binding_type": "collection",
+                                        "binding_collection_name": "hotbar_items"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "('Lodestone Tracking Handle ID: §z' + #item_lodestone_tracking_handle)",
+                                        "target_property_name": "#text"
+                                    },
+                                    {
+                                        "binding_type": "view",
+                                        "source_property_name": "(not (#item_lodestone_tracking_handle = 0))",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    
+    //Brighter
+    "asa_brighter": {
+        "type": "custom",
+        "renderer": "gradient_renderer",
+        "layer": -30,
+        "color1": [ 1, 1, 1, 0.06 ],
+        "color2": [ 1, 1, 1, 0.06 ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_brighter",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    //3rd crosshair
+    "asa_3rd_crosshair": {
+        "type": "image",
+        "layer": 10,
+        "size": [ 15, 15 ],
+        "texture": "textures/gui/icons",
+        "uv": [ 0, 0 ],
+        "offset": [ -1, -1 ],
+        "uv_size": [ 15, 15 ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_3rd_crosshair",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    //Durability Percent
+    "asa_durability_percent": {
+        "$asa_total_bar": "#item_durability_total_amount",
+        "$asa_current_bar": "#item_durability_current_amount",
+        "bindings": [
+            {
+                "binding_name": "$asa_total_bar",
+                "binding_type": "collection",
+                "binding_collection_name": "$asa_renderer_collection_name"
+            },
+            {
+                "binding_name": "$asa_current_bar",
+                "binding_type": "collection",
+                "binding_collection_name": "$asa_renderer_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((($asa_current_bar / $asa_total_bar) > $min_durability) and (($asa_current_bar / $asa_total_bar) < $max_durability)) or (($asa_current_bar / $asa_total_bar) = $min_durability)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "asa_main_hand_durability_percent": {
+        "type": "grid",
+        "grid_item_template": "asa_hud_content.asa_dura_panel",
+        "grid_dimension_binding": "#hotbar_grid_dimensions",
+        "collection_name": "hotbar_items",
+        "size": [ "100%cm", 0 ],
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "offset": [ 0, -11 ],
+        "bindings": [
+            {
+                "binding_name": "#hotbar_grid_dimensions",
+                "binding_type": "global"
+            }
+        ]
+    },
+
+    "asa_dura_panel": {
+        "type": "panel",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_durability_item_with_bg": {}
+            }
+        ]
+    },
+
+    "asa_durability_item_with_bg": {
+        "type": "image",
+        "size": [ "100%c + 4px", "100%c + 2px" ],
+        "layer": -5,
+        "texture": "asa_textures/ui/asa_background_white",
+        "color": [ 0, 0, 0 ],
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle",
+        "offset": [ 0, 0 ],
+        "alpha": 0.5,
+        "bindings": [
+            {
+                "binding_name": "(not (#item_durability_total_amount = 0))",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "@asa_dura_panel_percent": {}
+            }
+        ]
+    },
+
+    "asa_dura_panel_percent": {
+        "type": "stack_panel",
+        "size": [ "100%c", "100%cm" ],
+        "orientation": "horizontal",
+        "$asa_renderer_collection_name|default": "hotbar_items",
+        "bindings": [
+            {
+                "binding_name": "(not (#item_durability_total_amount = 0))",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "$asa_renderer_collection_name"
+            }
+        ],
+        "controls": [
+            {
+                "asa_durability@asa_durability_percent_panel": {}
+            }
+        ]
+    },
+
+    "asa_durability_text": {
+        "type": "panel",
+        "size": [ "100%c", "100%cm" ],
+        "controls": [
+            {
+                "asa_percent@asa_durability_percent": {
+                    "type": "label",
+                    "max_size": [ "default", 10 ],
+                    "text": "$asa_durability_text",
+                    "color": "$asa_durability_color",
+                    "font_scale_factor": 0.9,
+                    "shadow": true,
+                    "localize": false
+                }
+            }
+        ]
+    },
+
+    "asa_durability_percent_panel": {
+        "type": "panel",
+        "size": [
+            "100%c",
+            "100%cm"
+        ],
+        "controls": [
+            {
+                "0@asa_durability_text": {
+                    "$asa_durability_text": "0%",
+                    "$min_durability": 0.00,
+                    "$max_durability": 0.01,
+                    "$asa_durability_color": [ 1.0, 0.0, 0 ]
+                }
+            },
+            {
+                "1@asa_durability_text": {
+                    "$asa_durability_text": "1%",
+                    "$min_durability": 0.01,
+                    "$max_durability": 0.02,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "2@asa_durability_text": {
+                    "$asa_durability_text": "2%",
+                    "$min_durability": 0.02,
+                    "$max_durability": 0.03,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "3@asa_durability_text": {
+                    "$asa_durability_text": "3%",
+                    "$min_durability": 0.03,
+                    "$max_durability": 0.04,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "4@asa_durability_text": {
+                    "$asa_durability_text": "4%",
+                    "$min_durability": 0.04,
+                    "$max_durability": 0.05,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "5@asa_durability_text": {
+                    "$asa_durability_text": "5%",
+                    "$min_durability": 0.05,
+                    "$max_durability": 0.06,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "6@asa_durability_text": {
+                    "$asa_durability_text": "6%",
+                    "$min_durability": 0.06,
+                    "$max_durability": 0.07,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "7@asa_durability_text": {
+                    "$asa_durability_text": "7%",
+                    "$min_durability": 0.07,
+                    "$max_durability": 0.08,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "8@asa_durability_text": {
+                    "$asa_durability_text": "8%",
+                    "$min_durability": 0.08,
+                    "$max_durability": 0.09,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "9@asa_durability_text": {
+                    "$asa_durability_text": "9%",
+                    "$min_durability": 0.09,
+                    "$max_durability": 0.10,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "10@asa_durability_text": {
+                    "$asa_durability_text": "10%",
+                    "$min_durability": 0.10,
+                    "$max_durability": 0.11,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "11@asa_durability_text": {
+                    "$asa_durability_text": "11%",
+                    "$min_durability": 0.11,
+                    "$max_durability": 0.12,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "12@asa_durability_text": {
+                    "$asa_durability_text": "12%",
+                    "$min_durability": 0.12,
+                    "$max_durability": 0.13,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "13@asa_durability_text": {
+                    "$asa_durability_text": "13%",
+                    "$min_durability": 0.13,
+                    "$max_durability": 0.14,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "14@asa_durability_text": {
+                    "$asa_durability_text": "14%",
+                    "$min_durability": 0.14,
+                    "$max_durability": 0.15,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "15@asa_durability_text": {
+                    "$asa_durability_text": "15%",
+                    "$min_durability": 0.15,
+                    "$max_durability": 0.16,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "16@asa_durability_text": {
+                    "$asa_durability_text": "16%",
+                    "$min_durability": 0.16,
+                    "$max_durability": 0.17,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "17@asa_durability_text": {
+                    "$asa_durability_text": "17%",
+                    "$min_durability": 0.17,
+                    "$max_durability": 0.18,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "18@asa_durability_text": {
+                    "$asa_durability_text": "18%",
+                    "$min_durability": 0.18,
+                    "$max_durability": 0.19,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "19@asa_durability_text": {
+                    "$asa_durability_text": "19%",
+                    "$min_durability": 0.19,
+                    "$max_durability": 0.20,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "20@asa_durability_text": {
+                    "$asa_durability_text": "20%",
+                    "$min_durability": 0.20,
+                    "$max_durability": 0.21,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "21@asa_durability_text": {
+                    "$asa_durability_text": "21%",
+                    "$min_durability": 0.21,
+                    "$max_durability": 0.22,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "22@asa_durability_text": {
+                    "$asa_durability_text": "22%",
+                    "$min_durability": 0.22,
+                    "$max_durability": 0.23,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "23@asa_durability_text": {
+                    "$asa_durability_text": "23%",
+                    "$min_durability": 0.23,
+                    "$max_durability": 0.24,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "24@asa_durability_text": {
+                    "$asa_durability_text": "24%",
+                    "$min_durability": 0.24,
+                    "$max_durability": 0.25,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "25@asa_durability_text": {
+                    "$asa_durability_text": "25%",
+                    "$min_durability": 0.25,
+                    "$max_durability": 0.26,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "26@asa_durability_text": {
+                    "$asa_durability_text": "26%",
+                    "$min_durability": 0.26,
+                    "$max_durability": 0.27,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "27@asa_durability_text": {
+                    "$asa_durability_text": "27%",
+                    "$min_durability": 0.27,
+                    "$max_durability": 0.28,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "28@asa_durability_text": {
+                    "$asa_durability_text": "28%",
+                    "$min_durability": 0.28,
+                    "$max_durability": 0.29,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "29@asa_durability_text": {
+                    "$asa_durability_text": "29%",
+                    "$min_durability": 0.29,
+                    "$max_durability": 0.30,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "30@asa_durability_text": {
+                    "$asa_durability_text": "30%",
+                    "$min_durability": 0.30,
+                    "$max_durability": 0.31,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "31@asa_durability_text": {
+                    "$asa_durability_text": "31%",
+                    "$min_durability": 0.31,
+                    "$max_durability": 0.32,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "32@asa_durability_text": {
+                    "$asa_durability_text": "32%",
+                    "$min_durability": 0.32,
+                    "$max_durability": 0.33,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "33@asa_durability_text": {
+                    "$asa_durability_text": "33%",
+                    "$min_durability": 0.33,
+                    "$max_durability": 0.34,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "34@asa_durability_text": {
+                    "$asa_durability_text": "34%",
+                    "$min_durability": 0.34,
+                    "$max_durability": 0.35,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "35@asa_durability_text": {
+                    "$asa_durability_text": "35%",
+                    "$min_durability": 0.35,
+                    "$max_durability": 0.36,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "36@asa_durability_text": {
+                    "$asa_durability_text": "36%",
+                    "$min_durability": 0.36,
+                    "$max_durability": 0.37,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "37@asa_durability_text": {
+                    "$asa_durability_text": "37%",
+                    "$min_durability": 0.37,
+                    "$max_durability": 0.38,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "38@asa_durability_text": {
+                    "$asa_durability_text": "38%",
+                    "$min_durability": 0.38,
+                    "$max_durability": 0.39,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "39@asa_durability_text": {
+                    "$asa_durability_text": "39%",
+                    "$min_durability": 0.39,
+                    "$max_durability": 0.40,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "40@asa_durability_text": {
+                    "$asa_durability_text": "40%",
+                    "$min_durability": 0.40,
+                    "$max_durability": 0.41,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "41@asa_durability_text": {
+                    "$asa_durability_text": "41%",
+                    "$min_durability": 0.41,
+                    "$max_durability": 0.42,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "42@asa_durability_text": {
+                    "$asa_durability_text": "42%",
+                    "$min_durability": 0.42,
+                    "$max_durability": 0.43,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "43@asa_durability_text": {
+                    "$asa_durability_text": "43%",
+                    "$min_durability": 0.43,
+                    "$max_durability": 0.44,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "44@asa_durability_text": {
+                    "$asa_durability_text": "44%",
+                    "$min_durability": 0.44,
+                    "$max_durability": 0.45,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "45@asa_durability_text": {
+                    "$asa_durability_text": "45%",
+                    "$min_durability": 0.45,
+                    "$max_durability": 0.46,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "46@asa_durability_text": {
+                    "$asa_durability_text": "46%",
+                    "$min_durability": 0.46,
+                    "$max_durability": 0.47,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "47@asa_durability_text": {
+                    "$asa_durability_text": "47%",
+                    "$min_durability": 0.47,
+                    "$max_durability": 0.48,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "48@asa_durability_text": {
+                    "$asa_durability_text": "48%",
+                    "$min_durability": 0.48,
+                    "$max_durability": 0.49,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "49@asa_durability_text": {
+                    "$asa_durability_text": "49%",
+                    "$min_durability": 0.49,
+                    "$max_durability": 0.50,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "50@asa_durability_text": {
+                    "$asa_durability_text": "50%",
+                    "$min_durability": 0.50,
+                    "$max_durability": 0.51,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "51@asa_durability_text": {
+                    "$asa_durability_text": "51%",
+                    "$min_durability": 0.51,
+                    "$max_durability": 0.52,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "52@asa_durability_text": {
+                    "$asa_durability_text": "52%",
+                    "$min_durability": 0.52,
+                    "$max_durability": 0.53,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "53@asa_durability_text": {
+                    "$asa_durability_text": "53%",
+                    "$min_durability": 0.53,
+                    "$max_durability": 0.54,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "54@asa_durability_text": {
+                    "$asa_durability_text": "54%",
+                    "$min_durability": 0.54,
+                    "$max_durability": 0.55,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "55@asa_durability_text": {
+                    "$asa_durability_text": "55%",
+                    "$min_durability": 0.55,
+                    "$max_durability": 0.56,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "56@asa_durability_text": {
+                    "$asa_durability_text": "56%",
+                    "$min_durability": 0.56,
+                    "$max_durability": 0.57,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "57@asa_durability_text": {
+                    "$asa_durability_text": "57%",
+                    "$min_durability": 0.57,
+                    "$max_durability": 0.58,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "58@asa_durability_text": {
+                    "$asa_durability_text": "58%",
+                    "$min_durability": 0.58,
+                    "$max_durability": 0.59,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "59@asa_durability_text": {
+                    "$asa_durability_text": "59%",
+                    "$min_durability": 0.59,
+                    "$max_durability": 0.60,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "60@asa_durability_text": {
+                    "$asa_durability_text": "60%",
+                    "$min_durability": 0.60,
+                    "$max_durability": 0.61,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "61@asa_durability_text": {
+                    "$asa_durability_text": "61%",
+                    "$min_durability": 0.61,
+                    "$max_durability": 0.62,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "62@asa_durability_text": {
+                    "$asa_durability_text": "62%",
+                    "$min_durability": 0.62,
+                    "$max_durability": 0.63,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "63@asa_durability_text": {
+                    "$asa_durability_text": "63%",
+                    "$min_durability": 0.63,
+                    "$max_durability": 0.64,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "64@asa_durability_text": {
+                    "$asa_durability_text": "64%",
+                    "$min_durability": 0.64,
+                    "$max_durability": 0.65,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "65@asa_durability_text": {
+                    "$asa_durability_text": "65%",
+                    "$min_durability": 0.65,
+                    "$max_durability": 0.66,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "66@asa_durability_text": {
+                    "$asa_durability_text": "66%",
+                    "$min_durability": 0.66,
+                    "$max_durability": 0.67,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "67@asa_durability_text": {
+                    "$asa_durability_text": "67%",
+                    "$min_durability": 0.67,
+                    "$max_durability": 0.68,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "68@asa_durability_text": {
+                    "$asa_durability_text": "68%",
+                    "$min_durability": 0.68,
+                    "$max_durability": 0.69,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "69@asa_durability_text": {
+                    "$asa_durability_text": "69%",
+                    "$min_durability": 0.69,
+                    "$max_durability": 0.70,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "70@asa_durability_text": {
+                    "$asa_durability_text": "70%",
+                    "$min_durability": 0.70,
+                    "$max_durability": 0.71,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "71@asa_durability_text": {
+                    "$asa_durability_text": "71%",
+                    "$min_durability": 0.71,
+                    "$max_durability": 0.72,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "72@asa_durability_text": {
+                    "$asa_durability_text": "72%",
+                    "$min_durability": 0.72,
+                    "$max_durability": 0.73,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "73@asa_durability_text": {
+                    "$asa_durability_text": "73%",
+                    "$min_durability": 0.73,
+                    "$max_durability": 0.74,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "74@asa_durability_text": {
+                    "$asa_durability_text": "74%",
+                    "$min_durability": 0.74,
+                    "$max_durability": 0.75,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "75@asa_durability_text": {
+                    "$asa_durability_text": "75%",
+                    "$min_durability": 0.75,
+                    "$max_durability": 0.76,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "76@asa_durability_text": {
+                    "$asa_durability_text": "76%",
+                    "$min_durability": 0.76,
+                    "$max_durability": 0.77,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "77@asa_durability_text": {
+                    "$asa_durability_text": "77%",
+                    "$min_durability": 0.77,
+                    "$max_durability": 0.78,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "78@asa_durability_text": {
+                    "$asa_durability_text": "78%",
+                    "$min_durability": 0.78,
+                    "$max_durability": 0.79,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "79@asa_durability_text": {
+                    "$asa_durability_text": "79%",
+                    "$min_durability": 0.79,
+                    "$max_durability": 0.80,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "80@asa_durability_text": {
+                    "$asa_durability_text": "80%",
+                    "$min_durability": 0.80,
+                    "$max_durability": 0.81,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "81@asa_durability_text": {
+                    "$asa_durability_text": "81%",
+                    "$min_durability": 0.81,
+                    "$max_durability": 0.82,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "82@asa_durability_text": {
+                    "$asa_durability_text": "82%",
+                    "$min_durability": 0.82,
+                    "$max_durability": 0.83,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "83@asa_durability_text": {
+                    "$asa_durability_text": "83%",
+                    "$min_durability": 0.83,
+                    "$max_durability": 0.84,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "84@asa_durability_text": {
+                    "$asa_durability_text": "84%",
+                    "$min_durability": 0.84,
+                    "$max_durability": 0.85,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "85@asa_durability_text": {
+                    "$asa_durability_text": "85%",
+                    "$min_durability": 0.85,
+                    "$max_durability": 0.86,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "86@asa_durability_text": {
+                    "$asa_durability_text": "86%",
+                    "$min_durability": 0.86,
+                    "$max_durability": 0.87,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "87@asa_durability_text": {
+                    "$asa_durability_text": "87%",
+                    "$min_durability": 0.87,
+                    "$max_durability": 0.88,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "88@asa_durability_text": {
+                    "$asa_durability_text": "88%",
+                    "$min_durability": 0.88,
+                    "$max_durability": 0.89,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "89@asa_durability_text": {
+                    "$asa_durability_text": "89%",
+                    "$min_durability": 0.89,
+                    "$max_durability": 0.90,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "90@asa_durability_text": {
+                    "$asa_durability_text": "90%",
+                    "$min_durability": 0.90,
+                    "$max_durability": 0.91,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "91@asa_durability_text": {
+                    "$asa_durability_text": "91%",
+                    "$min_durability": 0.91,
+                    "$max_durability": 0.92,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "92@asa_durability_text": {
+                    "$asa_durability_text": "92%",
+                    "$min_durability": 0.92,
+                    "$max_durability": 0.93,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "93@asa_durability_text": {
+                    "$asa_durability_text": "93%",
+                    "$min_durability": 0.93,
+                    "$max_durability": 0.94,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "94@asa_durability_text": {
+                    "$asa_durability_text": "94%",
+                    "$min_durability": 0.94,
+                    "$max_durability": 0.95,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "95@asa_durability_text": {
+                    "$asa_durability_text": "95%",
+                    "$min_durability": 0.95,
+                    "$max_durability": 0.96,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "96@asa_durability_text": {
+                    "$asa_durability_text": "96%",
+                    "$min_durability": 0.96,
+                    "$max_durability": 0.97,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "97@asa_durability_text": {
+                    "$asa_durability_text": "97%",
+                    "$min_durability": 0.97,
+                    "$max_durability": 0.98,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "98@asa_durability_text": {
+                    "$asa_durability_text": "98%",
+                    "$min_durability": 0.98,
+                    "$max_durability": 0.99,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "99@asa_durability_text": {
+                    "$asa_durability_text": "99%",
+                    "$min_durability": 0.99,
+                    "$max_durability": 1.00,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "100@asa_durability_text": {
+                    "$asa_durability_text": "100%",
+                    "$min_durability": 1.00,
+                    "$max_durability": 1.01,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            }
+        ]
+    },
+
+    //Asa Exp Percent
+    "asa_exp_bindings_percent": {
+        "type": "label",
+        "color": [ 0.5, 1, 0 ],
+        "shadow": true,
+        "localize": false,
+        "bindings": [
+            {
+                "binding_name": "#exp_progress",
+                "binding_type": "global"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(((#exp_progress > $min_exp_bar) and (#exp_progress < $max_exp_bar)) or (#exp_progress = $max_exp_bar))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+    "asa_expbar_percent_stack": {
+        "type": "stack_panel",
+        "size": [ "100%c", "100%cm" ],
+        "anchor_from": "left_middle",
+        "anchor_to": "left_middle",
+        "offset": [ "-100%x - 7px", -1 ],
+        "orientation": "horizontal",
+        "controls": [
+            {
+                "@asa_exp_progress": {}
+            },
+            {
+                "@asa_exp_bindings_percent": {
+                    "type": "label",
+                    "text": "%",
+                    "$min_exp_bar": 0,
+                    "$max_exp_bar": 1
+                }
+            }
+        ]
+    },
+
+    "asa_exp_progress": {
+        "type": "panel",
+        "size": [ "100%cm", "100%cm" ],
+        "controls": [
+            {
+                "100@asa_exp_bindings_percent": {
+                    "text": "99",
+                    "$min_exp_bar": 0,
+                    "$max_exp_bar": 0.01
+                }
+            },
+            {
+                "99@asa_exp_bindings_percent": {
+                    "text": "98",
+                    "$min_exp_bar": 0.01,
+                    "$max_exp_bar": 0.02
+                }
+            },
+            {
+                "98@asa_exp_bindings_percent": {
+                    "text": "97",
+                    "$min_exp_bar": 0.02,
+                    "$max_exp_bar": 0.03
+                }
+            },
+            {
+                "97@asa_exp_bindings_percent": {
+                    "text": "96",
+                    "$min_exp_bar": 0.03,
+                    "$max_exp_bar": 0.04
+                }
+            },
+            {
+                "96@asa_exp_bindings_percent": {
+                    "text": "95",
+                    "$min_exp_bar": 0.04,
+                    "$max_exp_bar": 0.05
+                }
+            },
+            {
+                "95@asa_exp_bindings_percent": {
+                    "text": "94",
+                    "$min_exp_bar": 0.05,
+                    "$max_exp_bar": 0.06
+                }
+            },
+            {
+                "94@asa_exp_bindings_percent": {
+                    "text": "93",
+                    "$min_exp_bar": 0.06,
+                    "$max_exp_bar": 0.07
+                }
+            },
+            {
+                "93@asa_exp_bindings_percent": {
+                    "text": "92",
+                    "$min_exp_bar": 0.07,
+                    "$max_exp_bar": 0.08
+                }
+            },
+            {
+                "92@asa_exp_bindings_percent": {
+                    "text": "91",
+                    "$min_exp_bar": 0.08,
+                    "$max_exp_bar": 0.09
+                }
+            },
+            {
+                "91@asa_exp_bindings_percent": {
+                    "text": "90",
+                    "$min_exp_bar": 0.09,
+                    "$max_exp_bar": 0.10
+                }
+            },
+            {
+                "90@asa_exp_bindings_percent": {
+                    "text": "89",
+                    "$min_exp_bar": 0.10,
+                    "$max_exp_bar": 0.11
+                }
+            },
+            {
+                "89@asa_exp_bindings_percent": {
+                    "text": "88",
+                    "$min_exp_bar": 0.11,
+                    "$max_exp_bar": 0.12
+                }
+            },
+            {
+                "88@asa_exp_bindings_percent": {
+                    "text": "87",
+                    "$min_exp_bar": 0.12,
+                    "$max_exp_bar": 0.13
+                }
+            },
+            {
+                "87@asa_exp_bindings_percent": {
+                    "text": "86",
+                    "$min_exp_bar": 0.13,
+                    "$max_exp_bar": 0.14
+                }
+            },
+            {
+                "86@asa_exp_bindings_percent": {
+                    "text": "85",
+                    "$min_exp_bar": 0.14,
+                    "$max_exp_bar": 0.15
+                }
+            },
+            {
+                "85@asa_exp_bindings_percent": {
+                    "text": "84",
+                    "$min_exp_bar": 0.15,
+                    "$max_exp_bar": 0.16
+                }
+            },
+            {
+                "84@asa_exp_bindings_percent": {
+                    "text": "83",
+                    "$min_exp_bar": 0.16,
+                    "$max_exp_bar": 0.17
+                }
+            },
+            {
+                "83@asa_exp_bindings_percent": {
+                    "text": "82",
+                    "$min_exp_bar": 0.17,
+                    "$max_exp_bar": 0.18
+                }
+            },
+            {
+                "82@asa_exp_bindings_percent": {
+                    "text": "81",
+                    "$min_exp_bar": 0.18,
+                    "$max_exp_bar": 0.19
+                }
+            },
+            {
+                "81@asa_exp_bindings_percent": {
+                    "text": "80",
+                    "$min_exp_bar": 0.19,
+                    "$max_exp_bar": 0.20
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "79",
+                    "$min_exp_bar": 0.20,
+                    "$max_exp_bar": 0.21
+                }
+            },
+            {
+                "79@asa_exp_bindings_percent": {
+                    "text": "78",
+                    "$min_exp_bar": 0.21,
+                    "$max_exp_bar": 0.22
+                }
+            },
+            {
+                "78@asa_exp_bindings_percent": {
+                    "text": "77",
+                    "$min_exp_bar": 0.22,
+                    "$max_exp_bar": 0.23
+                }
+            },
+            {
+                "77@asa_exp_bindings_percent": {
+                    "text": "76",
+                    "$min_exp_bar": 0.23,
+                    "$max_exp_bar": 0.24
+                }
+            },
+            {
+                "76@asa_exp_bindings_percent": {
+                    "text": "75",
+                    "$min_exp_bar": 0.24,
+                    "$max_exp_bar": 0.25
+                }
+            },
+            {
+                "75@asa_exp_bindings_percent": {
+                    "text": "74",
+                    "$min_exp_bar": 0.25,
+                    "$max_exp_bar": 0.26
+                }
+            },
+            {
+                "74@asa_exp_bindings_percent": {
+                    "text": "73",
+                    "$min_exp_bar": 0.26,
+                    "$max_exp_bar": 0.27
+                }
+            },
+            {
+                "73@asa_exp_bindings_percent": {
+                    "text": "72",
+                    "$min_exp_bar": 0.27,
+                    "$max_exp_bar": 0.28
+                }
+            },
+            {
+                "72@asa_exp_bindings_percent": {
+                    "text": "71",
+                    "$min_exp_bar": 0.28,
+                    "$max_exp_bar": 0.29
+                }
+            },
+            {
+                "71@asa_exp_bindings_percent": {
+                    "text": "70",
+                    "$min_exp_bar": 0.29,
+                    "$max_exp_bar": 0.30
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "69",
+                    "$min_exp_bar": 0.30,
+                    "$max_exp_bar": 0.31
+                }
+            },
+            {
+                "69@asa_exp_bindings_percent": {
+                    "text": "68",
+                    "$min_exp_bar": 0.31,
+                    "$max_exp_bar": 0.32
+                }
+            },
+            {
+                "68@asa_exp_bindings_percent": {
+                    "text": "67",
+                    "$min_exp_bar": 0.32,
+                    "$max_exp_bar": 0.33
+                }
+            },
+            {
+                "67@asa_exp_bindings_percent": {
+                    "text": "66",
+                    "$min_exp_bar": 0.33,
+                    "$max_exp_bar": 0.34
+                }
+            },
+            {
+                "66@asa_exp_bindings_percent": {
+                    "text": "65",
+                    "$min_exp_bar": 0.34,
+                    "$max_exp_bar": 0.35
+                }
+            },
+            {
+                "65@asa_exp_bindings_percent": {
+                    "text": "64",
+                    "$min_exp_bar": 0.35,
+                    "$max_exp_bar": 0.36
+                }
+            },
+            {
+                "64@asa_exp_bindings_percent": {
+                    "text": "63",
+                    "$min_exp_bar": 0.36,
+                    "$max_exp_bar": 0.37
+                }
+            },
+            {
+                "63@asa_exp_bindings_percent": {
+                    "text": "62",
+                    "$min_exp_bar": 0.37,
+                    "$max_exp_bar": 0.38
+                }
+            },
+            {
+                "62@asa_exp_bindings_percent": {
+                    "text": "61",
+                    "$min_exp_bar": 0.38,
+                    "$max_exp_bar": 0.39
+                }
+            },
+            {
+                "61@asa_exp_bindings_percent": {
+                    "text": "60",
+                    "$min_exp_bar": 0.39,
+                    "$max_exp_bar": 0.40
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "59",
+                    "$min_exp_bar": 0.40,
+                    "$max_exp_bar": 0.41
+                }
+            },
+            {
+                "59@asa_exp_bindings_percent": {
+                    "text": "58",
+                    "$min_exp_bar": 0.41,
+                    "$max_exp_bar": 0.42
+                }
+            },
+            {
+                "58@asa_exp_bindings_percent": {
+                    "text": "57",
+                    "$min_exp_bar": 0.42,
+                    "$max_exp_bar": 0.43
+                }
+            },
+            {
+                "57@asa_exp_bindings_percent": {
+                    "text": "56",
+                    "$min_exp_bar": 0.43,
+                    "$max_exp_bar": 0.44
+                }
+            },
+            {
+                "56@asa_exp_bindings_percent": {
+                    "text": "55",
+                    "$min_exp_bar": 0.44,
+                    "$max_exp_bar": 0.45
+                }
+            },
+            {
+                "55@asa_exp_bindings_percent": {
+                    "text": "54",
+                    "$min_exp_bar": 0.45,
+                    "$max_exp_bar": 0.46
+                }
+            },
+            {
+                "54@asa_exp_bindings_percent": {
+                    "text": "53",
+                    "$min_exp_bar": 0.46,
+                    "$max_exp_bar": 0.47
+                }
+            },
+            {
+                "53@asa_exp_bindings_percent": {
+                    "text": "52",
+                    "$min_exp_bar": 0.47,
+                    "$max_exp_bar": 0.48
+                }
+            },
+            {
+                "52@asa_exp_bindings_percent": {
+                    "text": "51",
+                    "$min_exp_bar": 0.48,
+                    "$max_exp_bar": 0.49
+                }
+            },
+            {
+                "51@asa_exp_bindings_percent": {
+                    "text": "50",
+                    "$min_exp_bar": 0.49,
+                    "$max_exp_bar": 0.50
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "49",
+                    "$min_exp_bar": 0.50,
+                    "$max_exp_bar": 0.51
+                }
+            },
+            {
+                "49@asa_exp_bindings_percent": {
+                    "text": "48",
+                    "$min_exp_bar": 0.51,
+                    "$max_exp_bar": 0.52
+                }
+            },
+            {
+                "48@asa_exp_bindings_percent": {
+                    "text": "47",
+                    "$min_exp_bar": 0.52,
+                    "$max_exp_bar": 0.53
+                }
+            },
+            {
+                "47@asa_exp_bindings_percent": {
+                    "text": "46",
+                    "$min_exp_bar": 0.53,
+                    "$max_exp_bar": 0.54
+                }
+            },
+            {
+                "46@asa_exp_bindings_percent": {
+                    "text": "45",
+                    "$min_exp_bar": 0.54,
+                    "$max_exp_bar": 0.55
+                }
+            },
+            {
+                "45@asa_exp_bindings_percent": {
+                    "text": "44",
+                    "$min_exp_bar": 0.55,
+                    "$max_exp_bar": 0.56
+                }
+            },
+            {
+                "44@asa_exp_bindings_percent": {
+                    "text": "43",
+                    "$min_exp_bar": 0.56,
+                    "$max_exp_bar": 0.57
+                }
+            },
+            {
+                "43@asa_exp_bindings_percent": {
+                    "text": "42",
+                    "$min_exp_bar": 0.57,
+                    "$max_exp_bar": 0.58
+                }
+            },
+            {
+                "42@asa_exp_bindings_percent": {
+                    "text": "41",
+                    "$min_exp_bar": 0.58,
+                    "$max_exp_bar": 0.59
+                }
+            },
+            {
+                "41@asa_exp_bindings_percent": {
+                    "text": "40",
+                    "$min_exp_bar": 0.59,
+                    "$max_exp_bar": 0.60
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "39",
+                    "$min_exp_bar": 0.60,
+                    "$max_exp_bar": 0.61
+                }
+            },
+            {
+                "39@asa_exp_bindings_percent": {
+                    "text": "38",
+                    "$min_exp_bar": 0.61,
+                    "$max_exp_bar": 0.62
+                }
+            },
+            {
+                "38@asa_exp_bindings_percent": {
+                    "text": "37",
+                    "$min_exp_bar": 0.62,
+                    "$max_exp_bar": 0.63
+                }
+            },
+            {
+                "37@asa_exp_bindings_percent": {
+                    "text": "36",
+                    "$min_exp_bar": 0.63,
+                    "$max_exp_bar": 0.64
+                }
+            },
+            {
+                "36@asa_exp_bindings_percent": {
+                    "text": "35",
+                    "$min_exp_bar": 0.64,
+                    "$max_exp_bar": 0.65
+                }
+            },
+            {
+                "35@asa_exp_bindings_percent": {
+                    "text": "34",
+                    "$min_exp_bar": 0.65,
+                    "$max_exp_bar": 0.66
+                }
+            },
+            {
+                "34@asa_exp_bindings_percent": {
+                    "text": "33",
+                    "$min_exp_bar": 0.66,
+                    "$max_exp_bar": 0.67
+                }
+            },
+            {
+                "33@asa_exp_bindings_percent": {
+                    "text": "32",
+                    "$min_exp_bar": 0.67,
+                    "$max_exp_bar": 0.68
+                }
+            },
+            {
+                "32@asa_exp_bindings_percent": {
+                    "text": "31",
+                    "$min_exp_bar": 0.68,
+                    "$max_exp_bar": 0.69
+                }
+            },
+            {
+                "31@asa_exp_bindings_percent": {
+                    "text": "30",
+                    "$min_exp_bar": 0.69,
+                    "$max_exp_bar": 0.70
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "29",
+                    "$min_exp_bar": 0.70,
+                    "$max_exp_bar": 0.71
+                }
+            },
+            {
+                "29@asa_exp_bindings_percent": {
+                    "text": "28",
+                    "$min_exp_bar": 0.71,
+                    "$max_exp_bar": 0.72
+                }
+            },
+            {
+                "28@asa_exp_bindings_percent": {
+                    "text": "27",
+                    "$min_exp_bar": 0.72,
+                    "$max_exp_bar": 0.73
+                }
+            },
+            {
+                "27@asa_exp_bindings_percent": {
+                    "text": "26",
+                    "$min_exp_bar": 0.73,
+                    "$max_exp_bar": 0.74
+                }
+            },
+            {
+                "26@asa_exp_bindings_percent": {
+                    "text": "25",
+                    "$min_exp_bar": 0.74,
+                    "$max_exp_bar": 0.75
+                }
+            },
+            {
+                "25@asa_exp_bindings_percent": {
+                    "text": "24",
+                    "$min_exp_bar": 0.75,
+                    "$max_exp_bar": 0.76
+                }
+            },
+            {
+                "24@asa_exp_bindings_percent": {
+                    "text": "23",
+                    "$min_exp_bar": 0.76,
+                    "$max_exp_bar": 0.77
+                }
+            },
+            {
+                "23@asa_exp_bindings_percent": {
+                    "text": "22",
+                    "$min_exp_bar": 0.77,
+                    "$max_exp_bar": 0.78
+                }
+            },
+            {
+                "22@asa_exp_bindings_percent": {
+                    "text": "21",
+                    "$min_exp_bar": 0.78,
+                    "$max_exp_bar": 0.79
+                }
+            },
+            {
+                "21@asa_exp_bindings_percent": {
+                    "text": "20",
+                    "$min_exp_bar": 0.79,
+                    "$max_exp_bar": 0.80
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "19",
+                    "$min_exp_bar": 0.80,
+                    "$max_exp_bar": 0.81
+                }
+            },
+            {
+                "19@asa_exp_bindings_percent": {
+                    "text": "18",
+                    "$min_exp_bar": 0.81,
+                    "$max_exp_bar": 0.82
+                }
+            },
+            {
+                "18@asa_exp_bindings_percent": {
+                    "text": "17",
+                    "$min_exp_bar": 0.82,
+                    "$max_exp_bar": 0.83
+                }
+            },
+            {
+                "17@asa_exp_bindings_percent": {
+                    "text": "16",
+                    "$min_exp_bar": 0.83,
+                    "$max_exp_bar": 0.84
+                }
+            },
+            {
+                "16@asa_exp_bindings_percent": {
+                    "text": "15",
+                    "$min_exp_bar": 0.84,
+                    "$max_exp_bar": 0.85
+                }
+            },
+            {
+                "15@asa_exp_bindings_percent": {
+                    "text": "14",
+                    "$min_exp_bar": 0.85,
+                    "$max_exp_bar": 0.86
+                }
+            },
+            {
+                "14@asa_exp_bindings_percent": {
+                    "text": "13",
+                    "$min_exp_bar": 0.86,
+                    "$max_exp_bar": 0.87
+                }
+            },
+            {
+                "13@asa_exp_bindings_percent": {
+                    "text": "12",
+                    "$min_exp_bar": 0.87,
+                    "$max_exp_bar": 0.88
+                }
+            },
+            {
+                "12@asa_exp_bindings_percent": {
+                    "text": "11",
+                    "$min_exp_bar": 0.88,
+                    "$max_exp_bar": 0.89
+                }
+            },
+            {
+                "11@asa_exp_bindings_percent": {
+                    "text": "10",
+                    "$min_exp_bar": 0.89,
+                    "$max_exp_bar": 0.90
+                }
+            },
+            {
+                "80@asa_exp_bindings_percent": {
+                    "text": "9",
+                    "$min_exp_bar": 0.90,
+                    "$max_exp_bar": 0.91
+                }
+            },
+            {
+                "9@asa_exp_bindings_percent": {
+                    "text": "8",
+                    "$min_exp_bar": 0.91,
+                    "$max_exp_bar": 0.92
+                }
+            },
+            {
+                "8@asa_exp_bindings_percent": {
+                    "text": "7",
+                    "$min_exp_bar": 0.92,
+                    "$max_exp_bar": 0.93
+                }
+            },
+            {
+                "7@asa_exp_bindings_percent": {
+                    "text": "6",
+                    "$min_exp_bar": 0.93,
+                    "$max_exp_bar": 0.94
+                }
+            },
+            {
+                "6@asa_exp_bindings_percent": {
+                    "text": "5",
+                    "$min_exp_bar": 0.94,
+                    "$max_exp_bar": 0.95
+                }
+            },
+            {
+                "5@asa_exp_bindings_percent": {
+                    "text": "4",
+                    "$min_exp_bar": 0.95,
+                    "$max_exp_bar": 0.96
+                }
+            },
+            {
+                "4@asa_exp_bindings_percent": {
+                    "text": "3",
+                    "$min_exp_bar": 0.96,
+                    "$max_exp_bar": 0.97
+                }
+            },
+            {
+                "3@asa_exp_bindings_percent": {
+                    "text": "2",
+                    "$min_exp_bar": 0.97,
+                    "$max_exp_bar": 0.98
+                }
+            },
+            {
+                "2@asa_exp_bindings_percent": {
+                    "text": "1",
+                    "$min_exp_bar": 0.98,
+                    "$max_exp_bar": 0.99
+                }
+            },
+            {
+                "1@asa_exp_bindings_percent": {
+                    "text": "0",
+                    "$min_exp_bar": 0.99,
+                    "$max_exp_bar": 1.00
+                }
+            }
+        ]
+    }
+}

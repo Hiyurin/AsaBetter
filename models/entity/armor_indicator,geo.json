@@ -1,0 +1,152 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "format_version": "1.12.0",
+    "minecraft:geometry": [
+        {
+            "description": {
+                "identifier": "geometry.armor_icons",
+                "texture_width": 6,
+                "texture_height": 6
+            },
+            "bones": [
+                {
+                    "name": "armor_indicator",
+                    "pivot": [ 4, 35, 0.0 ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                -5,
+                                35,
+                                0.0
+                            ],
+                            "size": [
+                                6,
+                                6,
+                                0.0
+                            ],
+                            "uv": {
+                                "north": {
+                                    "uv": [
+                                        0,
+                                        0
+                                    ],
+                                    "uv_size": [
+                                        6,
+                                        6
+                                    ]
+                                }
+                            },
+                            "rotation": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "description": {
+                "identifier": "geometry.armor_2",
+                "texture_width": 6,
+                "texture_height": 6
+            },
+            "bones": [
+                {
+                    "name": "armor_indicator",
+                    "pivot": [ 4, 35, 0.0 ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                1,
+                                35,
+                                0.0
+                            ],
+                            "size": [
+                                6,
+                                6,
+                                0.0
+                            ],
+                            "uv": {
+                                "north": {
+                                    "uv": [
+                                        0,
+                                        0
+                                    ],
+                                    "uv_size": [
+                                        6,
+                                        6
+                                    ]
+                                }
+                            },
+                            "rotation": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+
+        {
+            "description": {
+                "identifier": "geometry.armor_1",
+                "texture_width": 6,
+                "texture_height": 6
+            },
+            "bones": [
+                {
+                    "name": "armor_indicator",
+                    "pivot": [
+                        4,
+                        35,
+                        0.0
+                    ],
+                    "cubes": [
+                        {
+                            "origin": [
+                                6,
+                                35,
+                                0.0
+                            ],
+                            "size": [
+                                6,
+                                6,
+                                0.0
+                            ],
+                            "uv": {
+                                "north": {
+                                    "uv": [
+                                        0,
+                                        0
+                                    ],
+                                    "uv_size": [
+                                        6,
+                                        6
+                                    ]
+                                }
+                            },
+                            "rotation": [
+                                0.0,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

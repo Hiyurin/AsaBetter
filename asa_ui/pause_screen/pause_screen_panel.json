@@ -1,0 +1,376 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_pause_screen_panel",
+
+    //Server Icon
+    "asa_feature_world_name": {
+        "type": "panel",
+        "size": [ "100%c + 4px", "100%c + 4px" ],
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_player_list_panel",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_quit_world",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_mod_menu_panel",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "world_stack_panel": {
+                    "type": "stack_panel",
+                    "size": [ "100%c", "100%cm" ],
+                    "orientation": "horizontal",
+                    "controls": [
+                        {
+                            "@asa_world_icon": {
+                                "$asa_world_icon": "pack_icon"
+                            }
+                        },
+                        {
+                            "panel": {
+                                "size":[ 2, 2 ],
+                                "type": "panel"
+                            }
+                        },
+                        {
+                            "world_name@asa_label": {
+                                "type": "label",
+                                "text": "#worldname",
+                                "localize": false,
+                                "max_size": [ "default", 15 ],
+                                "font_scale_factor": 1.5,
+                                "bindings": [
+                                    {
+                                        "binding_name": "#worldname"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_world_icon": {
+        "type": "image",
+        "size": [ 15, 15 ],
+        "texture": "$asa_world_icon"
+    },
+
+    //Panel Stack
+    "asa_pause_button_stack": {
+        "type": "stack_panel",
+        "size": [ "100%", "100%c" ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_player_list_panel",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_quit_world",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            },
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_mod_menu_panel",
+                "source_property_name": "(not #toggle_state)",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "world_name_panel": {
+                    "type": "panel",
+                    "size": [ "100%", 10 ],
+                    "controls": [
+                        {
+                            "world_name": {
+                                "type": "label",
+                                "size": [ "default", "default" ],
+                                "text": "Pause Menu",
+                                "max_size": [ "100% - 6px", 10 ]
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "panel": {
+                    "type": "panel",
+                    "size": [ 1, 5 ]
+                }
+            },
+            {
+                "resume@asa_pause_button_template.asa_pause_buttom_template": {
+                    "size": [ "100%", 22 ],
+                    "$pressed_button_name": "button.menu_continue",
+                    "$button_text": "Resume",
+                    "$asa_button_mappings": [
+                        {
+                          "from_button_id": "button.menu_select",
+                          "to_button_id": "$pressed_button_name",
+                          "mapping_type": "pressed"
+                        },
+                        {
+                          "from_button_id": "button.menu_ok",
+                          "to_button_id": "$pressed_button_name",
+                          "mapping_type": "focused"
+                        },
+                        {
+                            "from_button_id": "button.menu_cancel",
+                            "to_button_id": "$pressed_button_name",
+                            "mapping_type": "global"
+                        }
+                    ]
+                }
+            },
+            { "space": { "type": "panel", "size": [ 1, 1 ]}},
+            {
+                "setting_&_profile": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", 22 ],
+                    "controls": [
+                        {
+                            "settings@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.menu_settings",
+                                "$button_text": "Settings"
+                            }
+                        },
+                        { "space": { "type": "panel", "size": [ 1, 1 ]}},
+                        {
+                            "dressing@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.to_profile_or_skins_screen",
+                                "$button_text": "Dressing Room"
+                            }
+                        }
+                    ]
+                }
+            },
+            { "space": { "type": "panel", "size": [ 1, 1 ]}},
+            {
+                "achi_&_feedback": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", 22 ],
+                    "controls": [
+                        {
+                            "settings@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.screenshot",
+                                "$button_text": "Screenshot"
+                            }
+                        },
+                        { "space": { "type": "panel", "size": [ 1, 1 ]}},
+                        {
+                            "dressing@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.menu_store",
+                                "$button_text": "Store"
+                            }
+                        }
+                    ]
+                }
+            },
+            { "space": { "type": "panel", "size": [ 1, 1 ]}},
+            {
+                "achi_&_feedback": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", 22 ],
+                    "controls": [
+                        {
+                            "settings@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.menu_achievements",
+                                "$button_text": "Achievements"
+                            }
+                        },
+                        { "space": { "type": "panel", "size": [ 1, 1 ]}},
+                        {
+                            "dressing@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.menu_open_uri",
+                                "property_bag": {
+                                    "#hyperlink": "https://aka.ms/minecraftfb"
+                                },
+                                "$button_text": "Feedback"
+                            }
+                        }
+                    ]
+                }
+            },
+            { "space": { "type": "panel", "size": [ 1, 1 ]}},
+            {
+                "player_&_achievement": {
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
+                    "size": [ "100%", 22 ],
+                    "controls": [
+                        {
+                            "player@asa_toggle_common.asa_darkmode_navigation_toggle": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$toggle_group_forced_index": 1,
+                                "$toggle_view_binding_name": "asa_player_list_panel",
+                                "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                "$toggle_name": "asa_player_list_toggle",
+                                "$button_text": "Player List"
+                            }
+                        },
+                        { "space": { "type": "panel", "size": [ 1, 1 ]}},
+                        {
+                            "achievement@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "50% - 0.5px", 22 ],
+                                "$pressed_button_name": "button.menu_buy_game",
+                                "$button_text": "Music Player"
+                            }
+                        }
+                    ]
+                }
+            },
+            { "space": { "type": "panel", "size": [ 1, 1 ]}},
+            {
+                "exit@asa_pause_button_template.asa_button_toggle_template": {
+                    "size": [ "100%", 22 ],
+                    "$toggle_view_binding_name": "asa_quit_world",
+                    "$toggle_group_forced_index": 1,
+                    "$button_text": "Save & Quit"
+                }
+            }
+        ]
+    },
+
+    "asa_player_list_screen_content": {
+        "type": "panel",
+        "size": [ "100%", "100%" ],
+        "bindings": [
+            {
+                "binding_type": "view",
+                "source_control_name": "asa_player_list_panel",
+                "source_property_name": "#toggle_state",
+                "target_property_name": "#visible"
+            }
+        ],
+        "controls": [
+            {
+                "bottom_panel": {
+                    "type": "panel",
+                    "size": [ "50%", 60 ],
+                    "anchor_from": "bottom_middle",
+                    "anchor_to": "bottom_middle",
+                    "controls": [
+                        {
+                            "resume@asa_pause_button_template.asa_pause_buttom_template": {
+                                "size": [ "100%", 22 ],
+                                "$pressed_button_name": "button.menu_invite_players",
+                                "offset": [ 0, -23 ],
+                                "$button_text": "pauseScreen.invite"
+                            }
+                        },
+                        {
+                            "player@asa_toggle_common.asa_darkmode_navigation_toggle": {
+                                "size": [ "100%", 22 ],
+                                "$toggle_view_binding_name": "null",
+                                "$button_type_panel": "asa_toggle_common.button_text_panel",
+                                "$toggle_name": "asa_player_list_toggle",
+                                "$button_text": "Done"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "player_list_scrolling_panel@common.scrolling_panel": {
+                    "size": [ "50% + 2px", "100% - 102px" ],
+                    "offset": [ 1, 35 ],
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "$show_background": false,
+                    "$scroll_track_size": [ 5, "100% - 4px" ],
+                    "$scroll_track_offset|default": [ -4, 2 ],
+                    "$scrolling_content": "asa_player_list.asa_player_list_stack"
+                }
+            },
+            {
+                "text_panel": {
+                    "size": [ "50%", 52 ],
+                    "type": "panel",
+                    "anchor_from": "top_middle",
+                    "anchor_to": "top_middle",
+                    "controls": [
+                        {
+                            "text": {
+                                "type": "label",
+                                "size": [ "default", 10 ],
+                                "text": "Player List"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "asa_pause_screen_button_panel": {
+        "type": "panel",
+        "size": [ "50%", "100%c" ],
+        "controls": [
+            {
+                "@asa_pause_button_stack": {}
+            }
+        ]
+    },
+
+    "asa_pause_screen_content": {
+        "type": "panel",
+        "size": [ "100%", "100%" ],
+        "controls": [
+            {
+                "asa_feature_world_name@asa_feature_world_name": {}
+            },
+            {
+                "asa_pause_screen_panel@asa_pause_screen_button_panel": {}
+            },
+            {
+                "asa_player_list@asa_player_list_screen_content": {}
+            },
+            {
+                "asa_pause_screen_exit_world_panel@asa_exit_world_confirm_panel.asa_exit_confirm_screen": {}
+            },
+
+            
+            {
+                "asa_mod_menu_toggle@asa_mod_menu.asa_open_mod_menu_toggle_pause": {}
+            }
+        ]
+    }
+}

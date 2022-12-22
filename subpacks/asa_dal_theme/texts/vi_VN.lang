@@ -1,0 +1,224 @@
+##Bản dịch này không thuộc về bất kì ai, đây chỉ là những thứ tôi dịch trong pack tôi và bạn vẫn phải cài gói tài nguyên Tiếng Việt để sử dụng!
+##Và bạn có thể tùy chỉnh nó theo ý muốn :)
+
+item.bed.black.name=Giường Yatogami Tohka
+item.bed.red.name=Giường Tokisaki Kurumi
+item.bed.green.name=Giường Tohru
+item.bed.brown.name=Giường Shiro
+item.bed.blue.name=Giường Rinne Sonogami
+item.bed.purple.name=Giường Natsumi Kyouno
+item.bed.cyan.name=Giường Nao Tomori
+item.bed.silver.name=Giường Nakano Nino
+item.bed.gray.name=Giường Misaka Mikoto
+item.bed.pink.name=Giường Mirai Kuriyama
+item.bed.lime.name=Giường Mio Takamiya
+item.bed.yellow.name=Giường Marvelous AQL
+item.bed.lightBlue.name=Giường Kotori Itsuka
+item.bed.magenta.name=Giường Honjou Nia
+item.bed.orange.name=Giường Elaina
+item.bed.white.name=Giường Blanc Neptunia
+
+item.netherite_sword.name=Shekinah	#
+item.diamond_sword.name=Nahemah	#
+item.iron_sword.name=Sandalphon	#
+item.stone_sword.name=Raphael El Re'em	#
+item.wooden_sword.name=Camael	#
+
+##Header
+Quick Settings=Cài đặt nhanh
+General Settings=Cài đặt chung
+Control Settings=Cài đặt điều khiển
+Key & Mouse=Phím & Chuột
+
+Camera Perspective=Thiết lập góc nhìn
+First Person=Góc nhìn thứ nhất
+Third Person Back=Góc nhìn thứ ba từ phía sau
+Third Person Front=Góc nhìn thứ ba từ phía trước
+Gameplay=Lối chơi
+Graphic=Đồ họa
+Touch | Controller | Keyboard & Mouse=Cảm ứng | Tay cầm | Bàn phím & Chuột
+World Settings=Cài đặt thế giới
+
+World Seed:=Hạt giống thế giới:
+- Worlds -=- Thế giới -
+
+Done=Xong
+
+##Toggles
+Paper Doll: ON=Búp bê giấy: BẬT
+Paper Doll: OFF=Búp bê giấy: TẮT
+
+Hand: ON=Tay: BẬT
+Hand: OFF=Tay: TẮT
+
+HUD: ON=HUD: BẬT
+HUD: OFF=HUD: TẮT
+
+Fullscreen: ON=Toàn màn hình: BẬT
+Fullscreen: OFF=Toàn màn hình: TẮT
+
+SEEMORE SETTINGS=XEM THÊM CÀI ĐẶT
+HIDE SETTINGS=ẨN CÀI ĐẶT
+
+Play=Chơi
+Marketplace=Cửa hàng
+Settings=Cài đặt
+Edge Panel=Bảng ở cạnh
+Quit Game=Rời trò chơi
+
+Manage Account=Quản lý tài khoản
+Dressing Room=Phòng thay đồ
+Realms Invitation=Lời mời realm
+Achievements=Thành tích
+Feedback=Nhận xét
+Music Player=Trình chơi nhạc
+Close=Đóng
+
+Go Back=Trở lại
+Worlds=Thế giới
+Multiplayer=Nhiều người chơi
+Servers=Máy chủ
+
+Resume=Tiếp tục
+Screenshot=Chụp màn hình
+Store=Cửa hàng
+Player List=Danh sách người chơi
+Save & Quit=Lưu & rời
+Leave World=Rời khỏi thế giới
+Are you sure you want to quit the world?=Bạn có chắc chắn rằng bạn muốn rời khỏi thế giới?
+Cancel=Hủy bỏ
+
+Device: Mobile=Thiết bị: Di động
+Device: Console=Thiết bị: Bàn điều khiển
+Device: Windows=Thiết bị: Windows
+
+Operating System: Android=Hệ điều hành: Android
+Operating System: iOS=Hệ điều hành:iOS
+
+Gamemode: Creative=Chế độ: Sáng tạo
+Gamemode: Survival=Chế độ: Sinh tồn
+Gamemode: Spectator=Chế độ: Khán giả
+
+Input: Touch=Đầu vào: Cảm ứng
+Input: Keyboard and Mouse=Đầu vào: Bàn phím và chuột
+Input: Controller=Đầu vào: Tay cầm
+
+Position: Disable=Tọa độ: Vô hiệu hóa
+
+Set to Classic UI=Đặt thành UI Cổ điển
+Need to set UI Profile to Classic=Cần đặt UI Trò chơi thành Cổ điển
+Since this resource pack does not support Pocket UI players, you need to set to Classic UI to avoid bugs!=Vì gói tài nguyên không hỗ trợ cho người chơi UI Pocket, bạn cần đặt thành UI Cổ điển để tránh những lỗi gây khó chịu!
+Open Settings=Mở cài đặt
+
+Quick Crafting=Chế tạo nhanh
+Quick Trade=Giao dịch nhanh
+Remove One=Xóa bỏ một
+Normal=Bình thường
+Drop One=Thả một
+Auto Place=Đặt vào địa điểm tự động
+
+Pause Menu=Menu tạm dừng
+WORLD NAME=TÊN THẾ GIỚI
+
+HIDE=ẨN
+SHOW=HIỆN
+
+All=Tất cả
+
+ON=BẬT
+OFF=TẮT
+
+Quit=Rời
+
+Mob Effects=Hiệu ứng Mobs
+Vignette=Làm mờ nét
+Scoreboard=Bảng điểm
+Chats=Trò chuyện
+Top Chat=Trò chuyện trên
+Bottom Chat=Trò chuyện dưới
+Coordinates=Tọa độ
+Mainhand Slot=Chỗ tay chính
+Offhand Slot=Chỗ tay phụ
+Utility=Tiện ích
+Status=Trạng thái
+Item Durability Percent=Phần trăm độ bền vật phẩm
+Armor HUD=Giáp HUD
+Connected Hotbar=Hotbar được kết nối
+Hide Inventory Button=Ẩn nút mở kho đồ
+
+Item Tools=Công cụ vật phẩm
+Enchant Glint=Ánh sáng phù phép
+Clock=Đồng hồ
+Compass=La bàn
+Add Recovery Compass to HUD=Thêm La bàn phục hồi vào HUD
+Recovery Compass=La bàn phục hồi
+
+Debug=Gỡ lỗi
+Devices=Thiết bị
+Gamemode=Chế độ
+Input=Đầu vào
+Operating System=Hệ điều hành
+
+Better Bossbar=Thanh boss tốt hơn
+Default Bossbar=Thanh boss mặc định
+Java Bossbar=Thanh boss Java
+Bossbar=Thanh boss
+Boss Face=Mặt boss
+Boss Name=Tên boss
+Bar Health=Thanh máu
+
+Item Name=Tên vật phẩm
+Bedrock Item Name=Tên vật phẩm Bedrock
+Java Item Name=Tên vật phẩm Java
+Item Name Background=Nền tên vật phẩm
+
+Experience Bar=Thanh kinh nghiệm
+Item Count=Số vật phẩm
+Creative Mode=Chế độ sáng tạo
+
+Active=Hiện hoạt
+Available=Có sẵn
+
+Cost:=Chi phí:
+Close Recipes=Đóng công thức
+
+Utility Section=Phần tiện ích
+F1 & F8 Button=Nút F1 và F8
+Hotbar Mode=Chế độ Hotbar
+Default Hotbar=Hotbar mặc định
+RGB Default Hotbar=Hotbar mặc định RGB
+3rd Crosshair=Tâm 3 góc nhìn
+Displays all information of the item name, such as the Enchant line contained in that item=Hiển thị toàn bộ thông tin vật phẩm, bao gồm cả dòng Phù phép của vật phẩm đó
+Show only item name=Chỉ hiển thị tên vật phẩm
+Mainhand Display=Hiển thị tay chính
+Offhand Display=Hiển thị phụ
+Used to see the remaining durability percentage of the item you are holding=Sử dụng để xem phần trăm độ bền còn lại của vật phẩm bạn đang cầm
+Item AUX Viewer=Xem AUX Vật phẩm
+Allows viewing the AUX ID of the item in hand=Cho phép xem AUX ID của vật phẩm bạn đang cầm
+Exp Bar Percent=Phần trăm thanh exp
+Used to see the exp progress bar percentage=Sử dụng để xem phần trăm thanh tiến trình exp
+Brighter=Sáng hơn
+Helps you see better in dark areas=Giúp bạn nhìn rõ hơn trong các khu vực tối
+Shiny Potions=Bóng sáng thuốc
+Add glint effect to potions on Hotbar and Mainhand Display=Thêm hiệu ứng lấp lánh lên lọ thuốc trên Hotbar và Hiển thị tay chính
+Potion Icons=Biểu tượng thuốc
+Show the potion icon you are holding on the HUD=Hiển thị biểu tượng thuốc bạn đang cầm lên HUD
+Allows viewing of Exp bar in creative mode=Cho phép xem thanh Exp trong chế độ sáng tạo
+Allows viewing Item Counter in creative mode=Cho phép xem bộ đếm vật phẩm trong chế độ sáng tạo
+Health Bar Percent=Phần trăm thanh sức khỏe
+Used to see the remaining health percentage of the top Bossbar=Sử dụng để xem phần trăm sức khỏe con lại của thanh boss trên cùng
+Label=Văn bản
+Score On Scoreboard=Điểm trên bảng điểm
+Title=Tiêu đề
+Subtitle=Tiêu đề con
+Actionbar=Thanh tác vụ
+Tip=Mẹo
+Make Item tools have an Enchant Glint effect=Làm công cụ vật phẩm có hiệu ứng lấp lánh phù phép
+Display the Clock on the screen=Hiển thị đồng hồ lên màn hình
+Display the Compass on the screen=Hiển thị la bàn lên màn hình
+Display the Recovery Compass on the screen (May cause your game to crash when you play in Featured Servers or Versions lower than 1.19)=Hiển thị la bàn khôi phục lên màn hình (Có thể làm trò chơi bị treo khi bạn chơi trong Máy chủ tính năng hoặc dưới phiên bản 1.19)
+Make the inventory button invisible=Làm cho nút mở kho đồ trở nên vô hình
+You can't set UI Profile as you want, the default of UI Profile will always be Classic=Bạn không thể tùy chỉnh giao diện người dùng của mình, mặc định sẽ luôn luôn là Cổ điển
+
+My packs=Các gói của tôi
+Get more packs=Nhận nhiều gói hơn

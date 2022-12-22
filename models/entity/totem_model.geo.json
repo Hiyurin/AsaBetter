@@ -1,0 +1,44 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.3d_totem_of_undying",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "rightitem",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1, 6, -0.5], "size": [2, 2, 2], "uv": [0, 0]},
+						{"origin": [-1, 0, 0], "size": [1, 3, 1], "uv": [4, 12]},
+						{"origin": [1, 3, 0], "size": [1, 3, 1], "uv": [8, 12]},
+						{"origin": [-2, 3, 0], "size": [1, 3, 1], "uv": [10, 4]},
+						{"origin": [0, 0, 0], "size": [1, 3, 1], "uv": [0, 4]},
+						{"origin": [-1, 3, 0], "size": [2, 3, 1], "uv": [4, 4]},
+						{"origin": [-1, 6, -0.5], "size": [2, 2, 2], "inflate": 0.05, "uv": [8, 0]},
+						{"origin": [-2, 3, 0], "size": [1, 3, 1], "inflate": 0.05, "uv": [10, 8]},
+						{"origin": [1, 3, 0], "size": [1, 3, 1], "inflate": 0.05, "uv": [12, 12]},
+						{"origin": [0, -0.1, 0], "size": [1, 3, 1], "inflate": 0.05, "uv": [0, 12]},
+						{"origin": [-1, -0.1, 0], "size": [1, 3, 1], "inflate": 0.05, "uv": [0, 8]},
+						{"origin": [-1, 3, 0], "size": [2, 3, 1], "inflate": 0.05, "uv": [4, 8]}
+					]
+				}
+			]
+		}
+	]
+}

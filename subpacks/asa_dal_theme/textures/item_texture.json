@@ -1,0 +1,48 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.items",
+  "texture_data": {
+
+    //Waifu Bed asa_textures
+    "bed": {
+      "textures": [
+        "asa_textures/waifu_bed/items/blanc_neptunia",
+        "asa_textures/waifu_bed/items/elaina",
+        "asa_textures/waifu_bed/items/honjou_nia",
+        "asa_textures/waifu_bed/items/kotori_itsuka",
+        "asa_textures/waifu_bed/items/marvelous_aql",
+        "asa_textures/waifu_bed/items/mio_takamiya",
+        "asa_textures/waifu_bed/items/mirai_kuriyama",
+        "asa_textures/waifu_bed/items/misaka_mikoto",
+        "asa_textures/waifu_bed/items/nakano_nino",
+        "asa_textures/waifu_bed/items/nao_tomori",
+        "asa_textures/waifu_bed/items/natsumi_kyouno",
+        "asa_textures/waifu_bed/items/rinne_sonogami",
+        "asa_textures/waifu_bed/items/shiro",
+        "asa_textures/waifu_bed/items/tohru",
+        "asa_textures/waifu_bed/items/tokisaki_kurumi",
+        "asa_textures/waifu_bed/items/yatogami_tohka"
+      ]
+    },
+
+    "sword": {
+      "textures": [
+        "asa_textures/items/asa_dal_sword/camael",
+        "asa_textures/items/asa_dal_sword/raphael",
+        "asa_textures/items/asa_dal_sword/sandalphon",
+        "textures/items/gold_sword",  //Not editor
+        "asa_textures/items/asa_dal_sword/nahemah",
+        "asa_textures/items/asa_dal_sword/shekinah"
+      ]
+    }
+  }
+}

@@ -1,0 +1,65 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+{
+    "namespace": "asa_drop_one_common",
+
+    "asa_drop_one_slot@common.container_slot_button_prototype": {
+        "button_mappings": [
+            {
+                "from_button_id": "button.menu_select",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_ok",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_secondary_select",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_select",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_auto_place",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.controller_secondary_select",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop",
+                "to_button_id": "button.drop_one",
+                "mapping_type": "pressed"
+            },
+            {
+                "from_button_id": "button.menu_inventory_drop_all",
+                "to_button_id": "button.drop_all",
+                "mapping_type": "pressed"
+            },
+            {
+                "to_button_id": "button.shape_drawing",
+                "mapping_type": "pressed"
+            },
+            {
+                "to_button_id": "button.container_slot_hovered",
+                "mapping_type": "pressed"
+            }
+        ]
+    }
+}

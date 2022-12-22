@@ -1,0 +1,54 @@
+/*
+
+©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
+Youtube: https://www.youtube.com/c/AsakiZuki
+Facebook: https://facebook.com/asakizuki
+Discord: Kotori Itsuka#4241
+
+*/
+
+/*{
+	"format_version": "1.10.0",
+	"particle_effect": {
+		"description": {
+			"identifier": "asa.take_damage_particle",
+			"basic_render_parameters": {
+				"material": "particles_alpha",
+				"texture": "asa_textures/square"
+			}
+		},
+		"components": {
+			"minecraft:emitter_rate_instant": {
+				"num_particles": 100
+			},
+			"minecraft:emitter_lifetime_once": {
+				"active_time": 0.1
+			},
+			"minecraft:emitter_shape_point": {},
+			"minecraft:particle_lifetime_expression": {
+				"max_lifetime": 100
+			},
+			"minecraft:particle_initial_speed": 2.4,
+			"minecraft:particle_motion_dynamic": {
+				"linear_acceleration": [0, -8, 0],
+				"linear_drag_coefficient": 1.5
+			},
+			"minecraft:particle_appearance_billboard": {
+				"size": [0.04, 0.04],
+				"facing_camera_mode": "rotate_xyz",
+				"uv": {
+					"texture_width": 1,
+					"texture_height": 1,
+					"uv": [0, 0],
+					"uv_size": [1, 1]
+				}
+			},
+			"minecraft:particle_motion_collision": {
+				"coefficient_of_restitution": 0.1
+			},
+			"minecraft:particle_appearance_tinting": {
+				"color": [1, 0, 0, 1]
+			}
+		}
+	}
+}*/
