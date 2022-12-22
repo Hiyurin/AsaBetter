@@ -1,4 +1,4 @@
-# AsaBetter
+# AsaBetter By Asaki Zuki
 Are you bored because what Minecraft Bedrock can do is so little and boring? Do you want your game to be better? That's right, but that won't be the case anymore, I present you a great Resource pack. This pack can help you have a better experience when playing, by changing the UI. Special: this resource pack has an anime theme.
 <div align="center">
 ! Start Screen
@@ -23,3 +23,7 @@ __The quick setting button in the upper right corner will help you get to the se
 </div>
 
 </div>
+
+[Dowload](https://github.com/Hiyurin/AsaBetter/releases)
+
+[MCDL](https://mcpedl.com/asabetter/)
