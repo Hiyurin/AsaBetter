@@ -1060,9 +1060,9 @@ Discord: Kotori Itsuka#6038
             {
                 "device@device_debug": {}
             },
-            /*{
+            {
                 "up_pro@ui_profile_debug": {}
-            },*/
+            },
             {
                 "gamemode@gamemode_debug": {}
             },
