@@ -3,7 +3,7 @@
 ©2022 by Asaki Zuki, please do not delete this text and steal any code without my permission!
 Youtube: https://www.youtube.com/c/AsakiZuki
 Facebook: https://facebook.com/asakizuki
-Discord: Kotori Itsuka#6038
+Discord: Kotori Itsuka#4241
 
 */
 
@@ -118,17 +118,6 @@ Discord: Kotori Itsuka#6038
         "type": "custom",
         "offset": [ -124, -1077.6 ]
     },
-
-    //Clock, Compass, Lodestone Compass, Recovery Compass
-    "asa_item_renderer_template": {
-        "type": "custom",
-        "renderer": "inventory_item_renderer",
-        "size": [ 16, 16 ],
-        "property_bag": {
-            "#item_id_aux": "$asa_item_id"
-        }
-    },
-
     "asa_lodestone_panel@asa_item_renderer_template": {
         "property_bag": {
             "#item_id_aux": "$asa_item_id",
@@ -458,6 +447,16 @@ Discord: Kotori Itsuka#6038
         ]
     },
 
+    //Clock, Compass, Recovery Compass
+    "asa_item_renderer_template": {
+        "type": "custom",
+        "renderer": "inventory_item_renderer",
+        "size": [ 16, 16 ],
+        "property_bag": {
+            "#item_id_aux": "$asa_item_id"
+        }
+    },
+
     "asa_c_c_rc_stack": {
         "size": [ "100%c", "100%cm" ],
         "type": "stack_panel",
@@ -474,7 +473,7 @@ Discord: Kotori Itsuka#6038
         ],
         "controls": [
             {
-                "clocks@asa_item_renderer_template": {
+                 "clocks@asa_item_renderer_template": {
                     "$asa_item_id|default": 25755648,
                     "bindings": [
                         {
@@ -495,7 +494,7 @@ Discord: Kotori Itsuka#6038
                             "target_property_name": "#visible"
                         }
                     ],
-                    "variables": [
+                    "controls": [
                         {
                             "requires": "$win10_edition",
                             "$asa_item_id": "(25755648 + (65536 * $asa_item_id_offset))"
@@ -514,166 +513,101 @@ Discord: Kotori Itsuka#6038
                             "target_property_name": "#asa1"
                         },
                         {
-                            "binding_type": "view",
-                            "source_control_name": "asa_item_tolls_enchant",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa2"
+                            "compass@asa_item_renderer_template": {
+                                "$asa_item_id": 25624576,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
                         },
                         {
-                            "binding_type": "view",
-                            "source_property_name": "(#asa1 and #asa2)",
-                            "target_property_name": "#visible"
-                        }
-                    ],
-                    "variables": [
-                        {
-                            "requires": "$win10_edition",
-                            "$asa_item_id": "(25788416 + (65536 * $asa_item_id_offset))"
-                        }
-                    ]
-                }
-            },
-            {
-                "compass@asa_item_renderer_template": {
-                    "$asa_item_id|default": 25624576,
-                    "bindings": [
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_compass",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa1"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_item_tolls_enchant",
-                            "source_property_name": "(not #toggle_state)",
-                            "target_property_name": "#asa2"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_property_name": "(#asa1 and #asa2)",
-                            "target_property_name": "#visible"
-                        }
-                    ],
-                    "variables": [
-                        {
-                            "requires": "$win10_edition",
-                            "$asa_item_id": "(25624576 + (65536 * $asa_item_id_offset))"
-                        }
-                    ]
-                }
-            },
-            {
-                "compass@asa_item_renderer_template": {
-                    "$asa_item_id|default": 25657344,
-                    "bindings": [
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_compass",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa1"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_item_tolls_enchant",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa2"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_property_name": "(#asa1 and #asa2)",
-                            "target_property_name": "#visible"
-                        }
-                    ],
-                    "variables": [
-                        {
-                            "requires": "$win10_edition",
-                            "$asa_item_id": "(25657344 + (65536 * $asa_item_id_offset))"
-                        }
-                    ]
-                }
-            },
-            {
-                "lodestone_compass_panel": {
-                    "type": "panel",
-                    "size": [ "100%c", "100%c" ],
-                    "ignored": "$is_on_3p_server",
-                    "bindings": [
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_lodestone_compass",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#visible"
-                        }
-                    ],
-                    "controls": [
-                        {
-                            "lodestone_compass@asa_lodestone_panel_content": {}
-                        }
-                    ]
-                }
-            },
-            {
-                "recovery_compass_panel": {
-                    "type": "panel",
-                    "size": [ "100%c", "100%c" ],
-                    "ignored": "$is_on_3p_server",
-                    "bindings": [
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "add_recovery_compass",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa1"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "asa_item_tolls_enchant",
-                            "source_property_name": "(not #toggle_state)",
-                            "target_property_name": "#asa2"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_property_name": "(#asa1 and #asa2)",
-                            "target_property_name": "#visible"
-                        }
-                    ],
-                    "controls": [
-                        {
-                            "recovery_compass@asa_item_renderer_template": {
-                                "$asa_item_id": "(42336256 + (65536 * $asa_item_id_offset))"
+                            "recovery_compass_panel": {
+                                "type": "panel",
+                                "size": [ "100%c", "100%c" ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "add_recovery_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "recovery_compass@asa_item_renderer_template": {
+                                            "$asa_item_id": 42336256
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
                 }
             },
             {
-                "recovery_compass_panel": {
-                    "type": "panel",
-                    "size": [ "100%c", "100%c" ],
-                    "ignored": "$is_on_3p_server",
+                "enchant_panel":{
+                    "size": [ "100%c", "100%cm" ],
+                    "type": "stack_panel",
+                    "orientation": "horizontal",
                     "bindings": [
-                        {
-                            "binding_type": "view",
-                            "source_control_name": "add_recovery_compass",
-                            "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa1"
-                        },
                         {
                             "binding_type": "view",
                             "source_control_name": "asa_item_tolls_enchant",
                             "source_property_name": "#toggle_state",
-                            "target_property_name": "#asa2"
-                        },
-                        {
-                            "binding_type": "view",
-                            "source_property_name": "(#asa1 and #asa2)",
                             "target_property_name": "#visible"
                         }
                     ],
                     "controls": [
                         {
-                            "recovery_compass@asa_item_renderer_template": {
-                                "$asa_item_id": "(42369024 + (65536 * $asa_item_id_offset))"
+                            "clocks@asa_item_renderer_template": {
+                                "$asa_item_id": 25788416,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_clock",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "compass@asa_item_renderer_template": {
+                                "$asa_item_id": 25657344,
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "asa_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "recovery_compass_panel": {
+                                "type": "panel",
+                                "size": [ "100%c", "100%c" ],
+                                "bindings": [
+                                    {
+                                        "binding_type": "view",
+                                        "source_control_name": "add_recovery_compass",
+                                        "source_property_name": "#toggle_state",
+                                        "target_property_name": "#visible"
+                                    }
+                                ],
+                                "controls": [
+                                    {
+                                        "recovery_compass@asa_item_renderer_template": {
+                                            "$asa_item_id": 42369024
+                                        }
+                                    }
+                                ]
                             }
                         }
                     ]
@@ -773,11 +707,7 @@ Discord: Kotori Itsuka#6038
                 "$asa_label_debug": "Operating System: Android"
             },
             {
-                "requires": "$ios",
-                "$asa_label_debug": "Operating System: iOS"
-            },
-            {
-                "requires": "$is_ios",
+                "requires": "($is_ios and $ios)",
                 "$asa_label_debug": "Operating System: iOS"
             }
         ],
@@ -972,97 +902,11 @@ Discord: Kotori Itsuka#6038
         "anchor_to": "bottom_left",
         "controls": [
             {
-                "item_id@asa_hud_content.asa_mainhand_item_id": {}
-            },
-            {
-                "item_aux_id@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_item_aux_viewer",
-                    "$asa_item_binding_name": "#item_id_aux",
-                    "$asa_item_debug_property_viewer": "(not (#item_id_aux = -1))",
-                    "$asa_name_panel": "Aux ID"
-                }
-            },
-            {
-                "charged_item@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_charged_item_viewer",
-                    "$asa_item_binding_name": "#charged_item",
-                    "$asa_item_debug_property_viewer": "(not (#charged_item = 0))",
-                    "$asa_name_panel": "Charged Item"
-                }
-            },
-            {
-                "item_custom_color@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_item_custom_color_viewer",
-                    "$asa_item_binding_name": "#item_custom_color",
-                    "$asa_item_debug_property_viewer": "(not (#item_custom_color = -1))",
-                    "$asa_name_panel": "Item Custom Color"
-                }
-            },
-            {
-                "item_pickup_time@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_item_pickup_time_viewer",
-                    "$asa_item_binding_name": "#item_pickup_time",
-                    "$asa_item_debug_property_viewer": "(not (#item_pickup_time = 0))",
-                    "$asa_name_panel": "Item Pickup Time"
-                }
-            },
-            {
-                "show_item_pickup@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_show_item_pickup_viewer",
-                    "$asa_item_binding_name": "#show_item_pickup",
-                    "$asa_item_debug_property_viewer": "(not (#show_item_pickup = false))",
-                    "$asa_name_panel": "Show Item Pickup"
-                }
-            },
-            {
-                "banner_patterns@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_banner_patterns_viewer",
-                    "$asa_item_binding_name": "#banner_patterns",
-                    "$asa_item_debug_property_viewer": "(not (#banner_patterns = ''))",
-                    "$asa_name_panel": "Banner Patterns"
-                }
-            },
-            {
-                "banner_colors@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_banner_colors_viewer",
-                    "$asa_item_binding_name": "#banner_colors",
-                    "$asa_item_debug_property_viewer": "(not (#banner_colors = ''))",
-                    "$asa_name_panel": "Banner Colors"
-                }
-            },
-            {
-                "banner_type@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_banner_type_viewer",
-                    "$asa_item_binding_name": "#banner_type",
-                    "$asa_item_debug_property_viewer": "(not (#banner_type = 0))",
-                    "$asa_name_panel": "Banner Type"
-                }
-            },
-            {
-                "shield_is_active@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_shield_is_active_viewer",
-                    "$asa_item_binding_name": "#shield_is_active",
-                    "$asa_item_debug_property_viewer": "(not (#shield_is_active = false))",
-                    "$asa_name_panel": "Shield is Active"
-                }
-            },
-            {
-                "item_lodestone_tracking_handle@asa_hud_content.asa_item_debug_template": {
-                    "$asa_panel_binding_view": "asa_item_lodestone_tracking_handle_viewer",
-                    "$asa_item_binding_name": "#item_lodestone_tracking_handle",
-                    "$asa_item_debug_property_viewer": "(not (#item_lodestone_tracking_handle = 0))",
-                    "$asa_name_panel": "Item Lodestone Tracking Handle Viewer"
-                }
-            },
-            {
-                "item_id_offset@asa_hud_content.asa_item_id_offset_stack": {}
-            },
-            {
                 "device@device_debug": {}
             },
-            {
+            /*{
                 "up_pro@ui_profile_debug": {}
-            },
+            },*/
             {
                 "gamemode@gamemode_debug": {}
             },
@@ -1075,3 +919,4 @@ Discord: Kotori Itsuka#6038
         ]
     }
 }
+
